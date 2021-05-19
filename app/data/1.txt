@@ -1,0 +1,342 @@
+2021-05-19 17:59:31.378 4178-4178/com.example.shopping E/com.example.shopping.ShoppingService: event->
+    EventType: TYPE_WINDOW_CONTENT_CHANGED; EventTime: 39406626; PackageName: com.jingdong.app.mall; MovementGranularity: 0; Action: 0; ContentChangeTypes: [CONTENT_CHANGE_TYPE_SUBTREE]; WindowChangeTypes: [] [ ClassName: android.widget.FrameLayout; Text: []; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: false; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+    source->
+    window->
+    AccessibilityWindowInfo[title=京东, id=272, type=TYPE_APPLICATION, layer=0, bounds=Rect(0, 0 - 1080, 1920), focused=true, active=true, pictureInPicture=false, hasParent=false, isAnchored=false, hasChildren=false]
+    com.jingdong.app.mallandroid.widget.FrameLayout:null
+     com.jingdong.app.mallandroidx.drawerlayout.widget.DrawerLayout:null
+      com.jingdong.app.mallandroid.widget.RelativeLayout:null
+       com.jingdong.app.mallandroidx.recyclerview.widget.RecyclerView:null
+        com.jingdong.app.mallandroid.widget.RelativeLayout:null
+         com.jingdong.app.mallandroidx.viewpager.widget.ViewPager:null
+        com.jingdong.app.mallandroid.widget.LinearLayout:null
+         com.jingdong.app.mallandroid.widget.TextView:null
+       com.jingdong.app.mallandroid.widget.RelativeLayout:null
+        com.jingdong.app.mallandroid.widget.TextView:商品
+        com.jingdong.app.mallandroid.widget.TextView:评价
+        com.jingdong.app.mallandroid.widget.TextView:详情
+        com.jingdong.app.mallandroid.widget.ImageView:null
+        com.jingdong.app.mallandroid.widget.ImageView:null
+        com.jingdong.app.mallandroid.widget.ImageView:null
+       com.jingdong.app.mallandroid.widget.RelativeLayout:null
+        com.jingdong.app.mallandroid.widget.TextView:24
+        com.jingdong.app.mallandroid.widget.TextView:购物车
+       com.jingdong.app.mallandroid.widget.TextView:加入购物车
+     com.jingdong.app.mallandroid.widget.RelativeLayout:null
+2021-05-19 17:59:31.387 4178-4178/com.example.shopping E/com.example.shopping.ShoppingService: event->
+    EventType: TYPE_WINDOW_CONTENT_CHANGED; EventTime: 39406628; PackageName: com.jingdong.app.mall; MovementGranularity: 0; Action: 0; ContentChangeTypes: [CONTENT_CHANGE_TYPE_SUBTREE]; WindowChangeTypes: [] [ ClassName: android.widget.FrameLayout; Text: []; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: false; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+    source->
+    window->
+    AccessibilityWindowInfo[title=京东, id=272, type=TYPE_APPLICATION, layer=0, bounds=Rect(0, 0 - 1080, 1920), focused=true, active=true, pictureInPicture=false, hasParent=false, isAnchored=false, hasChildren=false]
+    com.jingdong.app.mallandroid.widget.FrameLayout:null
+     com.jingdong.app.mallandroidx.drawerlayout.widget.DrawerLayout:null
+      com.jingdong.app.mallandroid.widget.RelativeLayout:null
+       com.jingdong.app.mallandroidx.recyclerview.widget.RecyclerView:null
+        com.jingdong.app.mallandroid.widget.RelativeLayout:null
+         com.jingdong.app.mallandroidx.viewpager.widget.ViewPager:null
+        com.jingdong.app.mallandroid.widget.LinearLayout:null
+         com.jingdong.app.mallandroid.widget.TextView:null
+       com.jingdong.app.mallandroid.widget.RelativeLayout:null
+        com.jingdong.app.mallandroid.widget.TextView:商品
+        com.jingdong.app.mallandroid.widget.TextView:评价
+        com.jingdong.app.mallandroid.widget.TextView:详情
+        com.jingdong.app.mallandroid.widget.ImageView:null
+        com.jingdong.app.mallandroid.widget.ImageView:null
+        com.jingdong.app.mallandroid.widget.ImageView:null
+       com.jingdong.app.mallandroid.widget.RelativeLayout:null
+        com.jingdong.app.mallandroid.widget.TextView:24
+        com.jingdong.app.mallandroid.widget.TextView:购物车
+       com.jingdong.app.mallandroid.widget.TextView:加入购物车
+     com.jingdong.app.mallandroid.widget.RelativeLayout:null
+2021-05-19 17:59:31.396 4178-4178/com.example.shopping E/com.example.shopping.ShoppingService: event->
+    EventType: TYPE_WINDOW_STATE_CHANGED; EventTime: 39406628; PackageName: com.jingdong.app.mall; MovementGranularity: 0; Action: 0; ContentChangeTypes: []; WindowChangeTypes: [] [ ClassName: com.jd.lib.productdetail.ProductDetailActivity; Text: [京东]; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: true; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+    source->
+    window->
+    AccessibilityWindowInfo[title=京东, id=272, type=TYPE_APPLICATION, layer=0, bounds=Rect(0, 0 - 1080, 1920), focused=true, active=true, pictureInPicture=false, hasParent=false, isAnchored=false, hasChildren=false]
+    com.jingdong.app.mallandroid.widget.FrameLayout:null
+     com.jingdong.app.mallandroidx.drawerlayout.widget.DrawerLayout:null
+      com.jingdong.app.mallandroid.widget.RelativeLayout:null
+       com.jingdong.app.mallandroidx.recyclerview.widget.RecyclerView:null
+        com.jingdong.app.mallandroid.widget.RelativeLayout:null
+         com.jingdong.app.mallandroidx.viewpager.widget.ViewPager:null
+        com.jingdong.app.mallandroid.widget.LinearLayout:null
+         com.jingdong.app.mallandroid.widget.TextView:null
+       com.jingdong.app.mallandroid.widget.RelativeLayout:null
+        com.jingdong.app.mallandroid.widget.TextView:商品
+        com.jingdong.app.mallandroid.widget.TextView:评价
+        com.jingdong.app.mallandroid.widget.TextView:详情
+        com.jingdong.app.mallandroid.widget.ImageView:null
+        com.jingdong.app.mallandroid.widget.ImageView:null
+        com.jingdong.app.mallandroid.widget.ImageView:null
+       com.jingdong.app.mallandroid.widget.RelativeLayout:null
+        com.jingdong.app.mallandroid.widget.TextView:24
+        com.jingdong.app.mallandroid.widget.TextView:购物车
+       com.jingdong.app.mallandroid.widget.TextView:加入购物车
+     com.jingdong.app.mallandroid.widget.RelativeLayout:null
+2021-05-19 17:59:31.460 4178-4178/com.example.shopping E/com.example.shopping.ShoppingService: event->
+    EventType: TYPE_WINDOW_CONTENT_CHANGED; EventTime: 39406720; PackageName: com.jingdong.app.mall; MovementGranularity: 0; Action: 0; ContentChangeTypes: [CONTENT_CHANGE_TYPE_SUBTREE]; WindowChangeTypes: [] [ ClassName: android.widget.FrameLayout; Text: []; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: false; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+    source->
+    window->
+    AccessibilityWindowInfo[title=京东, id=272, type=TYPE_APPLICATION, layer=0, bounds=Rect(0, 0 - 1080, 1920), focused=true, active=true, pictureInPicture=false, hasParent=false, isAnchored=false, hasChildren=false]
+    com.jingdong.app.mallandroid.widget.FrameLayout:null
+     com.jingdong.app.mallandroidx.drawerlayout.widget.DrawerLayout:null
+      com.jingdong.app.mallandroid.widget.RelativeLayout:null
+       com.jingdong.app.mallandroidx.recyclerview.widget.RecyclerView:null
+        com.jingdong.app.mallandroid.widget.RelativeLayout:null
+         com.jingdong.app.mallandroidx.viewpager.widget.ViewPager:null
+        com.jingdong.app.mallandroid.widget.LinearLayout:null
+         com.jingdong.app.mallandroid.widget.TextView:null
+       com.jingdong.app.mallandroid.widget.RelativeLayout:null
+        com.jingdong.app.mallandroid.widget.TextView:商品
+        com.jingdong.app.mallandroid.widget.TextView:评价
+        com.jingdong.app.mallandroid.widget.TextView:详情
+        com.jingdong.app.mallandroid.widget.ImageView:null
+        com.jingdong.app.mallandroid.widget.ImageView:null
+        com.jingdong.app.mallandroid.widget.TextView:13
+        com.jingdong.app.mallandroid.widget.ImageView:null
+       com.jingdong.app.mallandroid.widget.RelativeLayout:null
+        com.jingdong.app.mallandroid.widget.TextView:24
+        com.jingdong.app.mallandroid.widget.TextView:购物车
+       com.jingdong.app.mallandroid.widget.TextView:加入购物车
+     com.jingdong.app.mallandroid.widget.RelativeLayout:null
+2021-05-19 17:59:31.615 4178-4178/com.example.shopping E/com.example.shopping.ShoppingService: event->
+    EventType: TYPE_VIEW_SELECTED; EventTime: 39406720; PackageName: com.jingdong.app.mall; MovementGranularity: 0; Action: 0; ContentChangeTypes: []; WindowChangeTypes: [] [ ClassName: android.widget.TextView; Text: [商品]; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: false; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+    source->
+    window->
+    AccessibilityWindowInfo[title=京东, id=272, type=TYPE_APPLICATION, layer=0, bounds=Rect(0, 0 - 1080, 1920), focused=true, active=true, pictureInPicture=false, hasParent=false, isAnchored=false, hasChildren=false]
+    com.jingdong.app.mallandroid.widget.TextView:商品
+2021-05-19 17:59:31.766 4178-4178/com.example.shopping E/com.example.shopping.ShoppingService: event->
+    EventType: TYPE_WINDOW_CONTENT_CHANGED; EventTime: 39406813; PackageName: com.jingdong.app.mall; MovementGranularity: 0; Action: 0; ContentChangeTypes: [CONTENT_CHANGE_TYPE_SUBTREE, CONTENT_CHANGE_TYPE_TEXT]; WindowChangeTypes: [] [ ClassName: android.widget.RelativeLayout; Text: []; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: false; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+    source->
+    window->
+    AccessibilityWindowInfo[title=京东, id=272, type=TYPE_APPLICATION, layer=0, bounds=Rect(0, 0 - 1080, 1920), focused=true, active=true, pictureInPicture=false, hasParent=false, isAnchored=false, hasChildren=false]
+    com.jingdong.app.mallandroid.widget.RelativeLayout:null
+     com.jingdong.app.mallandroid.widget.TextView:商品
+     com.jingdong.app.mallandroid.widget.TextView:评价
+     com.jingdong.app.mallandroid.widget.TextView:详情
+     com.jingdong.app.mallandroid.widget.TextView:推荐
+     com.jingdong.app.mallandroid.widget.ImageView:null
+     com.jingdong.app.mallandroid.widget.ImageView:null
+     com.jingdong.app.mallandroid.widget.TextView:13
+     com.jingdong.app.mallandroid.widget.ImageView:null
+2021-05-19 17:59:31.848 4178-4178/com.example.shopping E/com.example.shopping.ShoppingService: event->
+    EventType: TYPE_VIEW_SCROLLED; EventTime: 39406813; PackageName: com.jingdong.app.mall; MovementGranularity: 0; Action: 0; ContentChangeTypes: []; WindowChangeTypes: [] [ ClassName: androidx.recyclerview.widget.RecyclerView; Text: []; ContentDescription: null; ItemCount: 2; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: false; Scrollable: false; BeforeText: null; FromIndex: 0; ToIndex: 1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+    source->
+    window->
+    AccessibilityWindowInfo[title=京东, id=272, type=TYPE_APPLICATION, layer=0, bounds=Rect(0, 0 - 1080, 1920), focused=true, active=true, pictureInPicture=false, hasParent=false, isAnchored=false, hasChildren=false]
+    com.jingdong.app.mallandroidx.recyclerview.widget.RecyclerView:null
+     com.jingdong.app.mallandroid.widget.RelativeLayout:null
+      com.jingdong.app.mallandroidx.viewpager.widget.ViewPager:null
+       com.jingdong.app.mallandroid.widget.ImageView:null
+       com.jingdong.app.mallandroid.widget.ImageView:null
+      com.jingdong.app.mallandroid.widget.TextView:1/5
+     com.jingdong.app.mallandroid.widget.RelativeLayout:null
+      com.jingdong.app.mallandroid.widget.TextView:¥1499.00
+      com.jingdong.app.mallandroid.widget.TextView:距预约开始:
+     com.jingdong.app.mallandroid.widget.LinearLayout:null
+      com.jingdong.app.mallandroid.widget.TextView:品类好物指南
+     com.jingdong.app.mallandroid.widget.LinearLayout:null
+      com.jingdong.app.mallandroid.widget.TextVie飞天 53%vol  500ml 贵州茅台酒（带杯）
+      com.jingdong.app.mallandroid.widget.LinearLayout:null
+       com.jingdong.app.mallandroid.widget.TextView:414.8万
+     com.jingdong.app.mallandroid.widget.LinearLayout:null
+      com.jingdong.app.mallandroid.widget.TextView:• 荣耀传承  • 国货匠心
+     com.jingdong.app.mallandroid.widget.LinearLayout:null
+      com.jingdong.app.mallandroid.widget.TextView:约满即止，仅限京东实名认证用户APP端抢购，5月20日10:00开始预约，5月20日12:00开始抢购（京东APP需升级至8.5.6版本及以上）
+2021-05-19 17:59:31.859 4178-4178/com.example.shopping E/com.example.shopping.ShoppingService: event->
+    EventType: TYPE_WINDOW_CONTENT_CHANGED; EventTime: 39406840; PackageName: com.jingdong.app.mall; MovementGranularity: 0; Action: 0; ContentChangeTypes: []; WindowChangeTypes: [] [ ClassName: android.widget.TextView; Text: []; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: false; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+    source->
+    window->
+    AccessibilityWindowInfo[title=京东, id=272, type=TYPE_APPLICATION, layer=0, bounds=Rect(0, 0 - 1080, 1920), focused=true, active=true, pictureInPicture=false, hasParent=false, isAnchored=false, hasChildren=false]
+    com.jingdong.app.mallandroid.widget.TextView:商品
+2021-05-19 17:59:31.868 4178-4178/com.example.shopping E/com.example.shopping.ShoppingService: event->
+    EventType: TYPE_VIEW_SELECTED; EventTime: 39406840; PackageName: com.jingdong.app.mall; MovementGranularity: 0; Action: 0; ContentChangeTypes: []; WindowChangeTypes: [] [ ClassName: android.widget.TextView; Text: [商品]; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: false; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+    source->
+    window->
+    AccessibilityWindowInfo[title=京东, id=272, type=TYPE_APPLICATION, layer=0, bounds=Rect(0, 0 - 1080, 1920), focused=true, active=true, pictureInPicture=false, hasParent=false, isAnchored=false, hasChildren=false]
+    com.jingdong.app.mallandroid.widget.TextView:商品
+2021-05-19 17:59:31.876 4178-4178/com.example.shopping E/com.example.shopping.ShoppingService: event->
+    EventType: TYPE_WINDOW_CONTENT_CHANGED; EventTime: 39407028; PackageName: com.jingdong.app.mall; MovementGranularity: 0; Action: 0; ContentChangeTypes: [CONTENT_CHANGE_TYPE_SUBTREE, CONTENT_CHANGE_TYPE_TEXT]; WindowChangeTypes: [] [ ClassName: android.widget.FrameLayout; Text: []; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: false; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+    source->
+    window->
+    AccessibilityWindowInfo[title=京东, id=272, type=TYPE_APPLICATION, layer=0, bounds=Rect(0, 0 - 1080, 1920), focused=true, active=true, pictureInPicture=false, hasParent=false, isAnchored=false, hasChildren=false]
+    com.jingdong.app.mallandroid.widget.FrameLayout:null
+     com.jingdong.app.mallandroidx.drawerlayout.widget.DrawerLayout:null
+      com.jingdong.app.mallandroid.widget.RelativeLayout:null
+       com.jingdong.app.mallandroidx.recyclerview.widget.RecyclerView:null
+        com.jingdong.app.mallandroid.widget.RelativeLayout:null
+         com.jingdong.app.mallandroidx.viewpager.widget.ViewPager:null
+          com.jingdong.app.mallandroid.widget.ImageView:null
+          com.jingdong.app.mallandroid.widget.ImageView:null
+         com.jingdong.app.mallandroid.widget.TextView:1/5
+        com.jingdong.app.mallandroid.widget.RelativeLayout:null
+         com.jingdong.app.mallandroid.widget.TextView:¥1499.00
+         com.jingdong.app.mallandroid.widget.TextView:距预约开始:
+        com.jingdong.app.mallandroid.widget.LinearLayout:null
+         com.jingdong.app.mallandroid.widget.TextView:品类好物指南
+        com.jingdong.app.mallandroid.widget.LinearLayout:null
+         com.jingdong.app.mallandroid.widget.TextVie飞天 53%vol  500ml 贵州茅台酒（带杯）
+         com.jingdong.app.mallandroid.widget.LinearLayout:null
+          com.jingdong.app.mallandroid.widget.TextView:414.8万
+        com.jingdong.app.mallandroid.widget.LinearLayout:null
+         com.jingdong.app.mallandroid.widget.TextView:• 荣耀传承  • 国货匠心
+        com.jingdong.app.mallandroid.widget.LinearLayout:null
+         com.jingdong.app.mallandroid.widget.TextView:约满即止，仅限京东实名认证用户APP端抢购，5月20日10:00开始预约，5月20日12:00开始抢购（京东APP需升级至8.5.6版本及以上）
+       com.jingdong.app.mallandroidx.recyclerview.widget.RecyclerView:null
+       com.jingdong.app.mallandroid.widget.RelativeLayout:null
+        com.jingdong.app.mallandroid.widget.TextView:商品
+        com.jingdong.app.mallandroid.widget.TextView:评价
+        com.jingdong.app.mallandroid.widget.TextView:详情
+        com.jingdong.app.mallandroid.widget.TextView:推荐
+        com.jingdong.app.mallandroid.widget.ImageView:null
+        com.jingdong.app.mallandroid.widget.ImageView:null
+        com.jingdong.app.mallandroid.widget.TextView:13
+        com.jingdong.app.mallandroid.widget.ImageView:null
+        com.jingdong.app.mallandroid.widget.LinearLayout:null
+         com.jingdong.app.mallandroid.widget.TextView:茅台
+        com.jingdong.app.mallandroid.widget.TextView:茅台飞天
+        com.jingdong.app.mallandroid.widget.TextView:飞天茅台53度
+       com.jingdong.app.mallandroid.widget.RelativeLayout:null
+        com.jingdong.app.mallandroid.widget.TextView:店铺
+       com.jingdong.app.mallandroid.widget.RelativeLayout:null
+        com.jingdong.app.mallandroid.widget.TextView:24
+        com.jingdong.app.mallandroid.widget.TextView:购物车
+       com.jingdong.app.mallandroid.widget.TextView:等待预约
+2021-05-19 17:59:31.884 4178-4178/com.example.shopping E/com.example.shopping.ShoppingService: event->
+    EventType: TYPE_WINDOW_CONTENT_CHANGED; EventTime: 39407133; PackageName: com.jingdong.app.mall; MovementGranularity: 0; Action: 0; ContentChangeTypes: [CONTENT_CHANGE_TYPE_SUBTREE]; WindowChangeTypes: [] [ ClassName: android.widget.RelativeLayout; Text: []; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: false; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+    source->
+    window->
+    AccessibilityWindowInfo[title=京东, id=272, type=TYPE_APPLICATION, layer=0, bounds=Rect(0, 0 - 1080, 1920), focused=true, active=true, pictureInPicture=false, hasParent=false, isAnchored=false, hasChildren=false]
+    com.jingdong.app.mallandroid.widget.RelativeLayout:null
+     com.jingdong.app.mallandroidx.recyclerview.widget.RecyclerView:null
+      com.jingdong.app.mallandroid.widget.RelativeLayout:null
+       com.jingdong.app.mallandroidx.viewpager.widget.ViewPager:null
+        com.jingdong.app.mallandroid.widget.ImageView:null
+        com.jingdong.app.mallandroid.widget.ImageView:null
+       com.jingdong.app.mallandroid.widget.TextView:1/5
+      com.jingdong.app.mallandroid.widget.RelativeLayout:null
+       com.jingdong.app.mallandroid.widget.TextView:¥1499.00
+       com.jingdong.app.mallandroid.widget.TextView:距预约开始:
+      com.jingdong.app.mallandroid.widget.LinearLayout:null
+       com.jingdong.app.mallandroid.widget.TextView:品类好物指南
+      com.jingdong.app.mallandroid.widget.LinearLayout:null
+       com.jingdong.app.mallandroid.widget.TextVie飞天 53%vol  500ml 贵州茅台酒（带杯）
+       com.jingdong.app.mallandroid.widget.LinearLayout:null
+        com.jingdong.app.mallandroid.widget.TextView:414.8万
+      com.jingdong.app.mallandroid.widget.LinearLayout:null
+       com.jingdong.app.mallandroid.widget.TextView:• 荣耀传承  • 国货匠心
+      com.jingdong.app.mallandroid.widget.LinearLayout:null
+       com.jingdong.app.mallandroid.widget.TextView:约满即止，仅限京东实名认证用户APP端抢购，5月20日10:00开始预约，5月20日12:00开始抢购（京东APP需升级至8.5.6版本及以上）
+     com.jingdong.app.mallandroidx.recyclerview.widget.RecyclerView:null
+     com.jingdong.app.mallandroid.widget.RelativeLayout:null
+      com.jingdong.app.mallandroid.widget.TextView:商品
+      com.jingdong.app.mallandroid.widget.TextView:评价
+      com.jingdong.app.mallandroid.widget.TextView:详情
+      com.jingdong.app.mallandroid.widget.TextView:推荐
+      com.jingdong.app.mallandroid.widget.ImageView:null
+      com.jingdong.app.mallandroid.widget.ImageView:null
+      com.jingdong.app.mallandroid.widget.TextView:13
+      com.jingdong.app.mallandroid.widget.ImageView:null
+      com.jingdong.app.mallandroid.widget.LinearLayout:null
+       com.jingdong.app.mallandroid.widget.TextView:茅台
+      com.jingdong.app.mallandroid.widget.TextView:茅台飞天
+      com.jingdong.app.mallandroid.widget.TextView:飞天茅台53度
+     com.jingdong.app.mallandroid.widget.RelativeLayout:null
+      com.jingdong.app.mallandroid.widget.TextView:店铺
+     com.jingdong.app.mallandroid.widget.RelativeLayout:null
+      com.jingdong.app.mallandroid.widget.TextView:24
+      com.jingdong.app.mallandroid.widget.TextView:购物车
+     com.jingdong.app.mallandroid.widget.TextView:等待预约
+2021-05-19 17:59:31.891 4178-4178/com.example.shopping E/com.example.shopping.ShoppingService: event->
+    EventType: TYPE_VIEW_SELECTED; EventTime: 39407133; PackageName: com.jingdong.app.mall; MovementGranularity: 0; Action: 0; ContentChangeTypes: []; WindowChangeTypes: [] [ ClassName: android.widget.TextView; Text: [商品]; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: false; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+    source->
+    window->
+    AccessibilityWindowInfo[title=京东, id=272, type=TYPE_APPLICATION, layer=0, bounds=Rect(0, 0 - 1080, 1920), focused=true, active=true, pictureInPicture=false, hasParent=false, isAnchored=false, hasChildren=false]
+    com.jingdong.app.mallandroid.widget.TextView:商品
+2021-05-19 17:59:31.897 4178-4178/com.example.shopping E/com.example.shopping.ShoppingService: event->
+    EventType: TYPE_WINDOW_CONTENT_CHANGED; EventTime: 39407147; PackageName: com.jingdong.app.mall; MovementGranularity: 0; Action: 0; ContentChangeTypes: [CONTENT_CHANGE_TYPE_SUBTREE, CONTENT_CHANGE_TYPE_TEXT]; WindowChangeTypes: [] [ ClassName: android.widget.RelativeLayout; Text: []; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: false; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+    source->
+    window->
+    AccessibilityWindowInfo[title=京东, id=272, type=TYPE_APPLICATION, layer=0, bounds=Rect(0, 0 - 1080, 1920), focused=true, active=true, pictureInPicture=false, hasParent=false, isAnchored=false, hasChildren=false]
+    com.jingdong.app.mallandroid.widget.RelativeLayout:null
+     com.jingdong.app.mallandroid.widget.TextView:商品
+     com.jingdong.app.mallandroid.widget.TextView:评价
+     com.jingdong.app.mallandroid.widget.TextView:详情
+     com.jingdong.app.mallandroid.widget.TextView:推荐
+     com.jingdong.app.mallandroid.widget.ImageView:null
+     com.jingdong.app.mallandroid.widget.ImageView:null
+     com.jingdong.app.mallandroid.widget.TextView:13
+     com.jingdong.app.mallandroid.widget.ImageView:null
+     com.jingdong.app.mallandroid.widget.LinearLayout:null
+      com.jingdong.app.mallandroid.widget.TextView:茅台
+     com.jingdong.app.mallandroid.widget.TextView:茅台飞天
+     com.jingdong.app.mallandroid.widget.TextView:飞天茅台53度
+2021-05-19 17:59:31.904 4178-4178/com.example.shopping E/com.example.shopping.ShoppingService: event->
+    EventType: TYPE_VIEW_SCROLLED; EventTime: 39407147; PackageName: com.jingdong.app.mall; MovementGranularity: 0; Action: 0; ContentChangeTypes: []; WindowChangeTypes: [] [ ClassName: androidx.recyclerview.widget.RecyclerView; Text: []; ContentDescription: null; ItemCount: 17; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: false; Scrollable: true; BeforeText: null; FromIndex: 0; ToIndex: 5; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+    source->
+    window->
+    AccessibilityWindowInfo[title=京东, id=272, type=TYPE_APPLICATION, layer=0, bounds=Rect(0, 0 - 1080, 1920), focused=true, active=true, pictureInPicture=false, hasParent=false, isAnchored=false, hasChildren=false]
+    com.jingdong.app.mallandroidx.recyclerview.widget.RecyclerView:null
+     com.jingdong.app.mallandroid.widget.RelativeLayout:null
+      com.jingdong.app.mallandroidx.viewpager.widget.ViewPager:null
+       com.jingdong.app.mallandroid.widget.ImageView:null
+       com.jingdong.app.mallandroid.widget.ImageView:null
+      com.jingdong.app.mallandroid.widget.TextView:1/5
+     com.jingdong.app.mallandroid.widget.RelativeLayout:null
+      com.jingdong.app.mallandroid.widget.TextView:¥1499.00
+      com.jingdong.app.mallandroid.widget.TextView:距预约开始:
+     com.jingdong.app.mallandroid.widget.LinearLayout:null
+      com.jingdong.app.mallandroid.widget.TextView:品类好物指南
+     com.jingdong.app.mallandroid.widget.LinearLayout:null
+      com.jingdong.app.mallandroid.widget.TextVie飞天 53%vol  500ml 贵州茅台酒（带杯）
+      com.jingdong.app.mallandroid.widget.LinearLayout:null
+       com.jingdong.app.mallandroid.widget.TextView:414.8万
+     com.jingdong.app.mallandroid.widget.LinearLayout:null
+      com.jingdong.app.mallandroid.widget.TextView:• 荣耀传承  • 国货匠心
+     com.jingdong.app.mallandroid.widget.LinearLayout:null
+      com.jingdong.app.mallandroid.widget.TextView:约满即止，仅限京东实名认证用户APP端抢购，5月20日10:00开始预约，5月20日12:00开始抢购（京东APP需升级至8.5.6版本及以上）
+2021-05-19 17:59:31.988 4178-4178/com.example.shopping E/com.example.shopping.ShoppingService: event->
+    EventType: TYPE_WINDOW_CONTENT_CHANGED; EventTime: 39407249; PackageName: com.jingdong.app.mall; MovementGranularity: 0; Action: 0; ContentChangeTypes: [CONTENT_CHANGE_TYPE_SUBTREE]; WindowChangeTypes: [] [ ClassName: android.widget.RelativeLayout; Text: []; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: false; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+    source->
+    window->
+    AccessibilityWindowInfo[title=京东, id=272, type=TYPE_APPLICATION, layer=0, bounds=Rect(0, 0 - 1080, 1920), focused=true, active=true, pictureInPicture=false, hasParent=false, isAnchored=false, hasChildren=false]
+    com.jingdong.app.mallandroid.widget.RelativeLayout:null
+     com.jingdong.app.mallandroidx.recyclerview.widget.RecyclerView:null
+      com.jingdong.app.mallandroid.widget.RelativeLayout:null
+       com.jingdong.app.mallandroidx.viewpager.widget.ViewPager:null
+        com.jingdong.app.mallandroid.widget.ImageView:null
+        com.jingdong.app.mallandroid.widget.ImageView:null
+       com.jingdong.app.mallandroid.widget.TextView:1/5
+      com.jingdong.app.mallandroid.widget.RelativeLayout:null
+       com.jingdong.app.mallandroid.widget.TextView:¥1499.00
+       com.jingdong.app.mallandroid.widget.TextView:距预约开始:
+      com.jingdong.app.mallandroid.widget.LinearLayout:null
+       com.jingdong.app.mallandroid.widget.TextView:品类好物指南
+      com.jingdong.app.mallandroid.widget.LinearLayout:null
+       com.jingdong.app.mallandroid.widget.TextVie飞天 53%vol  500ml 贵州茅台酒（带杯）
+       com.jingdong.app.mallandroid.widget.LinearLayout:null
+        com.jingdong.app.mallandroid.widget.TextView:414.8万
+      com.jingdong.app.mallandroid.widget.LinearLayout:null
+       com.jingdong.app.mallandroid.widget.TextView:• 荣耀传承  • 国货匠心
+      com.jingdong.app.mallandroid.widget.LinearLayout:null
+       com.jingdong.app.mallandroid.widget.TextView:约满即止，仅限京东实名认证用户APP端抢购，5月20日10:00开始预约，5月20日12:00开始抢购（京东APP需升级至8.5.6版本及以上）
+     com.jingdong.app.mallandroidx.recyclerview.widget.RecyclerView:null
+     com.jingdong.app.mallandroid.widget.RelativeLayout:null
+      com.jingdong.app.mallandroid.widget.TextView:商品
+      com.jingdong.app.mallandroid.widget.TextView:评价
+      com.jingdong.app.mallandroid.widget.TextView:详情
+      com.jingdong.app.mallandroid.widget.TextView:推荐
+      com.jingdong.app.mallandroid.widget.ImageView:null
+      com.jingdong.app.mallandroid.widget.ImageView:null
+      com.jingdong.app.mallandroid.widget.TextView:13
+      com.jingdong.app.mallandroid.widget.ImageView:null
+      com.jingdong.app.mallandroid.widget.LinearLayout:null
+       com.jingdong.app.mallandroid.widget.TextView:茅台
+      com.jingdong.app.mallandroid.widget.TextView:茅台飞天
+      com.jingdong.app.mallandroid.widget.TextView:飞天茅台53度
+     com.jingdong.app.mallandroid.widget.RelativeLayout:null
+      com.jingdong.app.mallandroid.widget.TextView:店铺
+     com.jingdong.app.mallandroid.widget.RelativeLayout:null
+      com.jingdong.app.mallandroid.widget.TextView:24
+      com.jingdong.app.mallandroid.widget.TextView:购物车
+     com.jingdong.app.mallandroid.widget.TextView:等待预约

@@ -1,0 +1,46 @@
+2021-05-19 18:09:54.827 4178-4178/com.example.shopping E/com.example.shopping.ShoppingService: event->
+    EventType: TYPE_WINDOW_STATE_CHANGED; EventTime: 40031614; PackageName: com.jingdong.app.mall; MovementGranularity: 0; Action: 0; ContentChangeTypes: []; WindowChangeTypes: [] [ ClassName: com.jd.lib.cashier.pay.view.CashierPayActivity; Text: [京东]; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: true; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+    source->
+    window->
+    AccessibilityWindowInfo[title=京东, id=310, type=TYPE_APPLICATION, layer=0, bounds=Rect(0, 0 - 1080, 1920), focused=true, active=true, pictureInPicture=false, hasParent=false, isAnchored=false, hasChildren=false]
+    com.jingdong.app.mallandroid.widget.FrameLayout:null
+     com.jingdong.app.mallandroid.widget.ImageView:null
+     com.jingdong.app.mallandroid.widget.TextView:京东收银台
+     com.jingdong.app.mallandroid.widget.TextView:订单中心
+     com.jingdong.app.mallandroid.widget.LinearLayout:null
+      com.jingdong.app.mallandroid.widget.TextView:¥
+      com.jingdong.app.mallandroid.widget.TextView:15.01
+     com.jingdong.app.mallandroidx.recyclerview.widget.RecyclerView:null
+      com.jingdong.app.mallandroid.widget.FrameLayout:null
+       com.jingdong.app.mallandroid.widget.ImageView:null
+      com.jingdong.app.mallandroid.widget.LinearLayout:null
+       com.jingdong.app.mallandroid.widget.FrameLayout:null
+        com.jingdong.app.mallandroid.widget.RelativeLayout:null
+         com.jingdong.app.mallandroid.widget.TextView:使用新卡支付
+      com.jingdong.app.mallandroid.widget.LinearLayout:null
+       com.jingdong.app.mallandroid.widget.TextView:白条
+       com.jingdong.app.mallandroid.widget.TextView:未开通白条
+      com.jingdong.app.mallandroid.widget.LinearLayout:null
+       com.jingdong.app.mallandroid.widget.TextView:京东小金库
+       com.jingdong.app.mallandroid.widget.TextView:可用余额¥1.25，点左上角回退，点击“去转入”充值
+      com.jingdong.app.mallandroid.widget.LinearLayout:null
+       com.jingdong.app.mallandroid.widget.FrameLayout:null
+        com.jingdong.app.mallandroid.widget.RelativeLayout:null
+         com.jingdong.app.mallandroid.widget.TextView:全部付款方式
+         com.jingdong.app.mallandroid.widget.TextView:京东小金库
+      com.jingdong.app.mallandroid.widget.LinearLayout:null
+       com.jingdong.app.mallandroid.widget.FrameLayout:null
+        com.jingdong.app.mallandroid.widget.RelativeLayout:null
+         com.jingdong.app.mallandroid.widget.TextView:微信支付
+      com.jingdong.app.mallandroid.widget.LinearLayout:null
+       com.jingdong.app.mallandroid.widget.FrameLayout:null
+        com.jingdong.app.mallandroid.widget.RelativeLayout:null
+         com.jingdong.app.mallandroid.widget.TextView:云闪付
+         com.jingdong.app.mallandroid.widget.ImageView:null
+      com.jingdong.app.mallandroid.widget.LinearLayout:null
+       com.jingdong.app.mallandroid.widget.FrameLayout:null
+        com.jingdong.app.mallandroid.widget.RelativeLayout:null
+         com.jingdong.app.mallandroid.widget.TextView:微信好友代付
+     com.jingdong.app.mallandroid.widget.LinearLayout:null
+      com.jingdong.app.mallandroid.widget.TextView:微信支付
+      com.jingdong.app.mallandroid.widget.TextView:¥15.01

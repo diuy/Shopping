@@ -1,0 +1,56 @@
+2021-05-19 18:06:43.374 4178-4178/com.example.shopping E/com.example.shopping.ShoppingService: event->
+    EventType: TYPE_WINDOW_STATE_CHANGED; EventTime: 39838461; PackageName: com.jingdong.app.mall; MovementGranularity: 0; Action: 0; ContentChangeTypes: []; WindowChangeTypes: [] [ ClassName: com.jingdong.app.mall.WebActivity; Text: [京东]; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: true; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+    source->
+    window->
+    AccessibilityWindowInfo[title=京东, id=305, type=TYPE_APPLICATION, layer=0, bounds=Rect(0, 0 - 1080, 1920), focused=true, active=true, pictureInPicture=false, hasParent=false, isAnchored=false, hasChildren=false]
+    com.jingdong.app.mallandroid.widget.FrameLayout:null
+     com.jingdong.app.mallcom.tencent.tbs.core.webkit.WebView:null
+      com.jingdong.app.mallandroid.webkit.WebView:京喜送钱啦！！！
+       com.jingdong.app.mallandroid.view.View:
+        com.jingdong.app.mallandroid.view.View:
+        com.jingdong.app.mallandroid.view.View:
+         com.jingdong.app.mallandroid.view.View:
+         com.jingdong.app.mallandroid.view.View:活动规则
+        com.jingdong.app.mallandroid.view.View:
+         com.jingdong.app.mallandroid.view.View:
+          com.jingdong.app.mallandroid.view.View:恭喜您获得无门槛红包
+          com.jingdong.app.mallandroid.view.View:
+           com.jingdong.app.mallandroid.view.View:
+            com.jingdong.app.mallandroid.view.View:
+             com.jingdong.app.mallandroid.view.View:￥1.00
+             com.jingdong.app.mallandroid.view.View:京喜APP拼购店全品类可用
+             com.jingdong.app.mallandroid.view.View:请于 05：53：19.2 内领取
+          com.jingdong.app.mallandroid.view.View:
+          com.jingdong.app.mallandroid.view.View:
+           com.jingdong.app.mallandroid.view.View:
+            com.jingdong.app.mallandroid.view.View:
+             com.jingdong.app.mallandroid.view.View:立即领取
+           com.jingdong.app.mallandroid.view.View:
+            com.jingdong.app.mallandroid.view.View:
+          com.jingdong.app.mallandroid.view.View:
+        com.jingdong.app.mallandroid.view.View:
+         com.jingdong.app.mallandroid.view.View:
+          com.jingdong.app.mallandroid.view.View:红包可直接抵现，低至0.01元包邮
+          com.jingdong.app.mallandroid.view.View:
+           com.jingdong.app.mallandroid.view.View:
+            com.jingdong.app.mallandroid.view.View:
+             com.jingdong.app.mallandroid.view.View:
+              com.jingdong.app.mallandroid.widget.ListView:
+               com.jingdong.app.mallandroid.view.View:
+                com.jingdong.app.mallandroid.view.View:
+                 com.jingdong.app.mallandroid.widget.Image:d021de3e4234aec1.jpg!q70
+                com.jingdong.app.mallandroid.view.View:下水道防臭地漏盖厨房水槽过滤网洗手池水塞卫生间浴缸地漏防臭盖 颜色随机一个装
+                com.jingdong.app.mallandroid.view.View:抵现后
+                com.jingdong.app.mallandroid.view.View:￥3.00
+               com.jingdong.app.mallandroid.view.View:
+                com.jingdong.app.mallandroid.view.View:
+                 com.jingdong.app.mallandroid.widget.Image:4bdfd5b9ef2b9981.jpg!q70
+                com.jingdong.app.mallandroid.view.View:【穿绳款】垃圾袋家用加厚分类抽绳背心手提式一次性大号塑料袋 黑色【拉绳式】* 1卷15只【收藏优先发货】*
+                com.jingdong.app.mallandroid.view.View:抵现后
+                com.jingdong.app.mallandroid.view.View:￥1.90
+               com.jingdong.app.mallandroid.view.View:
+                com.jingdong.app.mallandroid.view.View:
+                 com.jingdong.app.mallandroid.widget.Image:a119c88faa5986f5.jpg!q70
+                com.jingdong.app.mallandroid.view.View:艾舒口独立装竹炭软毛牙刷 手动磨尖细软炭丝单支装成人家用情侣护龈清洁牙刷家庭装批发 202B 4支（小月亮竹炭软毛独立装）
+                com.jingdong.app.mallandroid.view.View:抵现后
+                com.jingdong.app.malland

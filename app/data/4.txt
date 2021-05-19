@@ -1,0 +1,56 @@
+2021-05-19 18:09:00.300 4178-4178/com.example.shopping E/com.example.shopping.ShoppingService: event->
+    EventType: TYPE_WINDOW_STATE_CHANGED; EventTime: 39975556; PackageName: com.jingdong.app.mall; MovementGranularity: 0; Action: 0; ContentChangeTypes: []; WindowChangeTypes: [] [ ClassName: com.jd.lib.settlement.fillorder.activity.NewFillOrderActivity; Text: [京东]; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: true; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+    source->
+    window->
+    AccessibilityWindowInfo[title=京东, id=307, type=TYPE_APPLICATION, layer=0, bounds=Rect(0, 0 - 1080, 1920), focused=true, active=true, pictureInPicture=false, hasParent=false, isAnchored=false, hasChildren=false]
+    com.jingdong.app.mallandroid.widget.FrameLayout:null
+     com.jingdong.app.mallandroid.widget.ImageView:null
+     com.jingdong.app.mallandroid.widget.RelativeLayout:null
+      com.jingdong.app.mallandroid.widget.TextView:填写订单
+     com.jingdong.app.mallandroidx.recyclerview.widget.RecyclerView:null
+      com.jingdong.app.mallandroid.widget.RelativeLayout:null
+       com.jingdong.app.mallandroid.widget.RelativeLayout:null
+        com.jingdong.app.mallandroid.widget.TextView:四川成都市高新西区
+        com.jingdong.app.mallandroid.widget.TextView:碧林街99号_中海国际橙郡三期
+        com.jingdong.app.mallandroid.widget.TextView:夏超
+        com.jingdong.app.mallandroid.widget.TextView:138****5087
+      com.jingdong.app.mallandroid.widget.RelativeLayout:null
+      com.jingdong.app.mallandroid.widget.LinearLayout:null
+       com.jingdong.app.mallandroid.widget.TextView:京东自营
+      com.jingdong.app.mallandroid.widget.RelativeLayout:null
+       com.jingdong.app.mallandroid.widget.TextView:狮王(Lion) 儿童牙膏 面包超人 可吞咽牙膏 含氟防蛀 0-6岁 草莓味 40g 日本进口
+       com.jingdong.app.mallandroid.widget.TextView:0-6岁面包超人牙膏 草莓味40g
+       com.jingdong.app.mallandroid.widget.TextView:¥15.80
+       com.jingdong.app.mallandroid.widget.ImageView:null
+       com.jingdong.app.mallandroid.widget.ImageView:null
+       com.jingdong.app.mallandroid.widget.TextView:1
+       com.jingdong.app.mallandroid.widget.ImageView:null
+       com.jingdong.app.mallandroid.widget.TextView:每件到手价¥15.01
+       com.jingdong.app.mallandroid.widget.TextView:支持7天无理由退货（拆封后不支持）
+      com.jingdong.app.mallandroid.widget.RelativeLayout:null
+       com.jingdong.app.mallandroid.widget.TextView:配送
+       com.jingdong.app.mallandroid.widget.TextView:可选配送时间
+       com.jingdong.app.mallandroid.widget.TextView:京东快递(送货上门)
+       com.jingdong.app.mallandroid.widget.TextView:5月20日 [周四] 09:00-15:00
+       com.jingdong.app.mallandroid.widget.ImageView:null
+      com.jingdong.app.mallandroid.view.ViewGroup:null
+       com.jingdong.app.mallandroid.view.View:null
+       com.jingdong.app.mallandroid.widget.TextView:无接触配送
+       com.jingdong.app.mallandroid.widget.TextView:中海橙郡社区星配站小蜜蜂
+       com.jingdong.app.mallandroid.widget.TextView:100m
+       com.jingdong.app.mallandroid.widget.TextView:距离最近
+       com.jingdong.app.mallandroid.widget.CheckBox:null
+      com.jingdong.app.mallandroid.widget.RelativeLayout:null
+       com.jingdong.app.mallandroid.widget.TextView:商品金额
+       com.jingdong.app.mallandroid.widget.TextView:¥15.80
+      com.jingdong.app.mallandroid.widget.RelativeLayout:null
+       com.jingdong.app.mallandroid.widget.TextView:运费
+       com.jingdong.app.mallandroid.widget.TextView:(总重:0.050kg)
+       com.jingdong.app.mallandroid.widget.ImageView:null
+       com.jingdong.app.mallandroid.widget.TextView:¥6.00
+      com.jingdong.app.mallandroid.widget.RelativeLayout:null
+       com.jingdong.app.mallandroid.widget.TextView:立减
+       com.jingdong.app.mallandroid.widget.TextView:- ¥0.79
+     com.jingdong.app.mallandroid.widget.LinearLayout:null
+      com.jingdong.app.mallandroid.widget.TextView:¥15.01
+      com.jingdong.app.mallandroid.widget.TextView:共计�

@@ -1,0 +1,52 @@
+2021-05-19 18:03:24.007 4178-4178/com.example.shopping E/com.example.shopping.ShoppingService: event->
+    EventType: TYPE_WINDOW_STATE_CHANGED; EventTime: 39639255; PackageName: com.jingdong.app.mall; MovementGranularity: 0; Action: 0; ContentChangeTypes: []; WindowChangeTypes: [] [ ClassName: com.jingdong.app.mall.WebActivity; Text: [京东]; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: true; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+    source->
+    window->
+    AccessibilityWindowInfo[title=京东, id=292, type=TYPE_APPLICATION, layer=0, bounds=Rect(0, 0 - 1080, 1920), focused=true, active=true, pictureInPicture=false, hasParent=false, isAnchored=false, hasChildren=false]
+    com.jingdong.app.mallandroid.widget.FrameLayout:null
+     com.jingdong.app.mallcom.tencent.tbs.core.webkit.WebView:null
+      com.jingdong.app.mallandroid.webkit.WebView:品质优选
+       com.jingdong.app.mallandroid.view.View:
+        com.jingdong.app.mallandroid.view.View:
+         com.jingdong.app.mallandroid.view.View:
+          com.jingdong.app.mallandroid.view.View:无骨鸡爪
+          com.jingdong.app.mallandroid.view.View:越买越开心
+         com.jingdong.app.mallandroid.view.View:【拍3盒更划算】酸辣无骨鸡爪脱骨柠檬凤爪去骨盒装罐装休闲食品网红零食肉类小吃 200克微辣【第三盒0元，建议拍3盒】 5217条评价 好评率92% 满70元减42 满40元减16 ¥ 23 .8
+         com.jingdong.app.mallandroid.view.View:麻辣无骨鸡爪250gX2袋黑鸡爪零食去骨无骨凤爪四川特产私房凉拌菜 1.1万+条评价 好评率93% 满2件打9折 满3件打8.50折 券 满10减2 券 满99减10 ¥ 29 .8
+         com.jingdong.app.mallandroid.view.View:酸辣无骨鸡爪即食零食2斤网红火号火焰兔去骨泡椒蒜香脱骨凤爪柠檬大包袋装 微辣酸辣味1袋【1000g共2斤】 2.5万+条评价 好评率92% 券 满198减30 券 满108减10 ¥ 54 .8
+         com.jingdong.app.mallandroid.view.View:谭八爷柠檬酸辣无骨鸡爪盒装去骨凤爪网红休闲零食即食脱骨鸡脚四川特产麻辣小吃卤味熟食180g/200g 无骨凤爪400g（200g*2罐） 6.2万+条评价 好评率95% 券 满258减25 券 满99减5 ¥ 49 .8 ¥34.8
+         com.jingdong.app.mallandroid.view.View:江南状元 无骨去骨鸡爪柠檬酸辣不辣即食糟卤凤爪网红鸡爪零食 酸辣无骨鸡爪 微辣 250g 加辣可备注 2156条评价 好评率97% 满2件打7.50折 券 满199享9折 ¥ 19 .8
+         com.jingdong.app.mallandroid.view.View:柠檬酸辣无骨鸡爪罐装500g网红小吃零食即熟食脱骨一斤泡椒凤爪 （微辣味）无骨鸡爪500g 165条评价 好评率100% 券 满299减10 券 满89减3 ¥ 32 .8
+         com.jingdong.app.mallandroid.view.View:酸辣无骨鸡爪即食泡椒凤爪罐装网红火号火焰兔零食蒜香肉食熟食去骨脱骨柠檬 微辣加辣泡椒蒜香各1盒【4盒共800g】 1.3万+条评价 好评率95% 券 满198减30 券 满108减10 ¥ 42 .5
+         com.jingdong.app.mallandroid.view.View:无骨鸡爪罐装网红酸辣去骨凤爪脱骨鸡脚酸辣味多味休闲零食 中辣365g(中通) 5052条评价 好评率93% ¥ 49
+         com.jingdong.app.mallandroid.view.View:小胡鸭 蒜香柠檬酸辣无骨鸡爪350g泡椒凤爪去骨鸭掌鸭爪下酒菜小吃 柠檬酸辣无骨鸡爪350g 1.3万+条评价 好评率95% 满58元减19 满116元减40 满78元减30 ¥ 39
+         com.jingdong.app.mallandroid.view.View:酸辣无骨鸡爪柠檬泡椒去骨凤爪即食盒装网红休闲零食脱骨鸡抓小零食解馋办公室 柠檬味(酸辣)200g*1盒 1条评价 好评率100% ¥ 18
+         com.jingdong.app.mallandroid.view.View:更多推荐
+         com.jingdong.app.mallandroid.view.View:泰迪熊Teddy Bear呼吸特薄拉拉裤XL30片(12-17公斤)婴儿尿不湿 50万+条评价 好评率99% 满399元减40 满599元减100 券 满399减80 券 满268减50 ¥ 69
+         com.jingdong.app.mallandroid.view.View:飞利浦（PHILIPS）儿童剃头理发器电推剪可
+2021-05-19 18:03:24.139 4178-4178/com.example.shopping E/com.example.shopping.ShoppingService: event->
+    EventType: TYPE_WINDOW_STATE_CHANGED; EventTime: 39639399; PackageName: com.jingdong.app.mall; MovementGranularity: 0; Action: 0; ContentChangeTypes: []; WindowChangeTypes: [] [ ClassName: com.jingdong.app.mall.WebActivity; Text: [京东]; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; Enabled: true; Password: false; Checked: false; FullScreen: true; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+    source->
+    window->
+    AccessibilityWindowInfo[title=京东, id=292, type=TYPE_APPLICATION, layer=0, bounds=Rect(0, 0 - 1080, 1920), focused=true, active=true, pictureInPicture=false, hasParent=false, isAnchored=false, hasChildren=false]
+    com.jingdong.app.mallandroid.widget.FrameLayout:null
+     com.jingdong.app.mallcom.tencent.tbs.core.webkit.WebView:null
+      com.jingdong.app.mallandroid.webkit.WebView:品质优选
+       com.jingdong.app.mallandroid.view.View:
+        com.jingdong.app.mallandroid.view.View:
+         com.jingdong.app.mallandroid.view.View:
+          com.jingdong.app.mallandroid.view.View:无骨鸡爪
+          com.jingdong.app.mallandroid.view.View:越买越开心
+         com.jingdong.app.mallandroid.view.View:【拍3盒更划算】酸辣无骨鸡爪脱骨柠檬凤爪去骨盒装罐装休闲食品网红零食肉类小吃 200克微辣【第三盒0元，建议拍3盒】 5217条评价 好评率92% 满70元减42 满40元减16 ¥ 23 .8
+         com.jingdong.app.mallandroid.view.View:麻辣无骨鸡爪250gX2袋黑鸡爪零食去骨无骨凤爪四川特产私房凉拌菜 1.1万+条评价 好评率93% 满2件打9折 满3件打8.50折 券 满10减2 券 满99减10 ¥ 29 .8
+         com.jingdong.app.mallandroid.view.View:酸辣无骨鸡爪即食零食2斤网红火号火焰兔去骨泡椒蒜香脱骨凤爪柠檬大包袋装 微辣酸辣味1袋【1000g共2斤】 2.5万+条评价 好评率92% 券 满198减30 券 满108减10 ¥ 54 .8
+         com.jingdong.app.mallandroid.view.View:谭八爷柠檬酸辣无骨鸡爪盒装去骨凤爪网红休闲零食即食脱骨鸡脚四川特产麻辣小吃卤味熟食180g/200g 无骨凤爪400g（200g*2罐） 6.2万+条评价 好评率95% 券 满258减25 券 满99减5 ¥ 49 .8 ¥34.8
+         com.jingdong.app.mallandroid.view.View:江南状元 无骨去骨鸡爪柠檬酸辣不辣即食糟卤凤爪网红鸡爪零食 酸辣无骨鸡爪 微辣 250g 加辣可备注 2156条评价 好评率97% 满2件打7.50折 券 满199享9折 ¥ 19 .8
+         com.jingdong.app.mallandroid.view.View:柠檬酸辣无骨鸡爪罐装500g网红小吃零食即熟食脱骨一斤泡椒凤爪 （微辣味）无骨鸡爪500g 165条评价 好评率100% 券 满299减10 券 满89减3 ¥ 32 .8
+         com.jingdong.app.mallandroid.view.View:酸辣无骨鸡爪即食泡椒凤爪罐装网红火号火焰兔零食蒜香肉食熟食去骨脱骨柠檬 微辣加辣泡椒蒜香各1盒【4盒共800g】 1.3万+条评价 好评率95% 券 满198减30 券 满108减10 ¥ 42 .5
+         com.jingdong.app.mallandroid.view.View:无骨鸡爪罐装网红酸辣去骨凤爪脱骨鸡脚酸辣味多味休闲零食 中辣365g(中通) 5052条评价 好评率93% ¥ 49
+         com.jingdong.app.mallandroid.view.View:小胡鸭 蒜香柠檬酸辣无骨鸡爪350g泡椒凤爪去骨鸭掌鸭爪下酒菜小吃 柠檬酸辣无骨鸡爪350g 1.3万+条评价 好评率95% 满58元减19 满116元减40 满78元减30 ¥ 39
+         com.jingdong.app.mallandroid.view.View:酸辣无骨鸡爪柠檬泡椒去骨凤爪即食盒装网红休闲零食脱骨鸡抓小零食解馋办公室 柠檬味(酸辣)200g*1盒 1条评价 好评率100% ¥ 18
+         com.jingdong.app.mallandroid.view.View:更多推荐
+         com.jingdong.app.mallandroid.view.View:泰迪熊Teddy Bear呼吸特薄拉拉裤XL30片(12-17公斤)婴儿尿不湿 50万+条评价 好评率99% 满399元减40 满599元减100 券 满399减80 券 满268减50 ¥ 69
+         com.jingdong.app.mallandroid.view.View:飞利浦（PHILIPS）儿童剃头理发器电推剪可
