@@ -5,21 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.accessibilityservice.AccessibilityService;
-import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,8 +27,31 @@ public class MainActivity extends AppCompatActivity {
 
     //Manifest.permission.CAMERA
 
-    private void checkPermission() {
-        List<String> list = new ArrayList<String>();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        setupPermission();
+        setupServer();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    private boolean checkPermission() {
+        for (String str : PERMISSIONS) {
+            if (PackageManager.PERMISSION_GRANTED != checkSelfPermission(str)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void setupPermission() {
+        List<String> list = new ArrayList<>();
         for (String str : PERMISSIONS) {
             if (PackageManager.PERMISSION_GRANTED != checkSelfPermission(str)) {
                 list.add(str);
@@ -42,28 +62,31 @@ public class MainActivity extends AppCompatActivity {
         requestPermissions(list.toArray(new String[0]), 0);
     }
 
+    private void showDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("无法获得授权");
+
+        builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                setupPermission();
+            }
+        });
+
+        builder.create().show();
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == 0) {
-            checkPermission();
+            if(!checkPermission()){
+                showDialog();
+            }
         }
     }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        checkPermission();
-        checkServer();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    public void checkServer() {
+    public void setupServer() {
         if (!isAccessibilitySettingsOn(this, ShoppingService.class)) {
             startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS));
         }

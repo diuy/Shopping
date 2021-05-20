@@ -33,6 +33,10 @@ public class NodeInfoWriter {
             write("source->\n");
             writeNodeInfo(info, 0);
         }
+        try {
+            fileWriter.flush();
+        } catch (IOException e) {
+        }
     }
 
 
@@ -41,6 +45,11 @@ public class NodeInfoWriter {
             return;
         write(currentTime(), ":root->\n");
         writeNodeInfo(info, 0);
+
+        try {
+            fileWriter.flush();
+        } catch (IOException e) {
+        }
     }
 
     private void writeNodeInfo(AccessibilityNodeInfo info, int depth) {
