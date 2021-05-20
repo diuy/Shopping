@@ -3,6 +3,7 @@ package com.example.shopping;
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.accessibilityservice.GestureDescription;
+import android.app.Activity;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
@@ -10,6 +11,8 @@ import android.content.IntentFilter;
 import android.graphics.Path;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
@@ -23,6 +26,11 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.file.Files;
 import java.util.List;
 
 public class ShoppingService extends AccessibilityService {
@@ -30,10 +38,13 @@ public class ShoppingService extends AccessibilityService {
     private static ShoppingService service;
     private JDTask task;
     private HandlerTimer timer;
+    private FileWriter fileWriter;
+
 
     public ShoppingService() {
 
     }
+
 
     private final Runnable onTime = () -> {
         if (task == null) {
@@ -73,6 +84,7 @@ public class ShoppingService extends AccessibilityService {
         if (task != null)
             task.setRootInfo(getRootInActiveWindow());
         printEvent(event);
+        printRoot();
 //        if (event.getEventType() == AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED) {
 //            if (event.getSource() != null) {
 //                //  Log.d(TAG, "onAccessibilityEvent:source:" + event.getSource().getChildCount());
@@ -105,16 +117,96 @@ public class ShoppingService extends AccessibilityService {
         Log.e(TAG, builder.toString());
     }
 
+    private void printRoot(){
+        builder.setLength(0);
+        builder.append("root->\n");
+        printNodeInfo(getRootInActiveWindow(), 0);
+        Log.e(TAG, builder.toString());
+    }
+
     private void printNodeInfo(AccessibilityNodeInfo info, int depth) {
         if (info == null)
             return;
         for (int i = 0; i < depth; i++) {
             builder.append(' ');
         }
-        builder.append(info.getPackageName()).append(info.getClassName()).append(":").append(info.getText()).append('\n');
+        printNodeInfo(info);
         for (int i = 0; i < info.getChildCount(); i++) {
             printNodeInfo(info.getChild(i), depth + 1);
         }
+    }
+
+    private void printNodeInfo(AccessibilityNodeInfo info) {
+        builder.append(info.getClassName()).append(":").append(info.getText()).append(' ');
+
+        if (info.isAccessibilityFocused()) {
+            builder.append("AccessibilityFocused").append(',');
+        }
+        if (info.isCheckable()) {
+            builder.append("Checkable").append(',');
+        }
+        if (info.isChecked()) {
+            builder.append("Checked").append(',');
+        }
+        if (info.isClickable()) {
+            builder.append("Clickable").append(',');
+        }
+        if (info.isContentInvalid()) {
+            builder.append("ContentInvalid").append(',');
+        }
+        if (info.isContextClickable()) {
+            builder.append("ContextClickable").append(',');
+        }
+        if (info.isDismissable()) {
+            builder.append("Dismissable").append(',');
+        }
+        if (info.isEditable()) {
+            builder.append("Editable").append(',');
+        }
+        if (info.isEnabled()) {
+            builder.append("Enabled").append(',');
+        }
+        if (info.isFocusable()) {
+            builder.append("Focusable").append(',');
+        }
+        if (info.isFocused()) {
+            builder.append("Focused").append(',');
+        }
+        if (info.isImportantForAccessibility()) {
+            builder.append("ImportantForAccessibility").append(',');
+        }
+        if (info.isLongClickable()) {
+            builder.append("LongClickable").append(',');
+        }
+        if (info.isMultiLine()) {
+            builder.append("MultiLine").append(',');
+        }
+        if (info.isPassword()) {
+            builder.append("Password").append(',');
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            if (info.isScreenReaderFocusable()) {
+                builder.append("ScreenReaderFocusable").append(',');
+            }
+        }
+        if (info.isScrollable()) {
+            builder.append("Scrollable").append(',');
+        }
+        if (info.isSelected()) {
+            builder.append("Selected").append(',');
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            if (info.isShowingHintText()) {
+                builder.append("ShowingHintText").append(',');
+            }
+        }
+//        if (info.isTextEntryKey()) {
+//            builder.append("TextEntryKey").append(',');
+//        }
+        if (info.isVisibleToUser()) {
+            builder.append("VisibleToUser").append(',');
+        }
+        builder.append('\n');
     }
 
 
@@ -145,12 +237,42 @@ public class ShoppingService extends AccessibilityService {
         service = null;
     }
 
+    private void closeFile(){
+        if(fileWriter!=null) {
+            try {
+                fileWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            fileWriter = null;
+        }
+    }
+
+    private void openFile() {
+        if(fileWriter!=null)
+            return;
+        File root = getExternalFilesDir(null);
+        File dataDir = new File(root,"shopping");
+        if(!dataDir.exists() && !dataDir.mkdir()){
+            return;
+        }
+
+        File logFile = new File(dataDir,"node-info.txt");
+        try {
+            fileWriter = new FileWriter(logFile,true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void onDestroy() {
+        closeFile();
         super.onDestroy();
         toast("助手关闭");
         service = null;
         timer.stop();
+
     }
 
 
