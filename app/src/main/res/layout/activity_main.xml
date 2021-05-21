@@ -6,25 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" android:onClick="onLayout">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onStart"
-        android:text="Button1"
-        android:visibility="visible"
-        tools:layout_editor_absoluteX="144dp"
-        tools:layout_editor_absoluteY="108dp"
-        tools:visibility="visible"
-        tools:ignore="MissingConstraints" />
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onStart"
+            android:text="Start"
+            android:visibility="visible" />
+        <Button
+            android:id="@+id/btnTest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onTest"
+            android:text="Test"
+            android:visibility="visible" />
+        <Button
+            android:id="@+id/btnOpenRecord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onOpenRecord"
+            android:text="OpenRecord"
+            android:visibility="visible"  />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

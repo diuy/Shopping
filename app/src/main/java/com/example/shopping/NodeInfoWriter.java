@@ -21,7 +21,7 @@ public class NodeInfoWriter {
     }
 
     public void writeEvent(AccessibilityEvent event) {
-        if(!openFile())
+        if(fileWriter==null)
             return;
         write(currentTime(), ":event->\n");
         write(event.toString(), "\n");
@@ -33,23 +33,23 @@ public class NodeInfoWriter {
             write("source->\n");
             writeNodeInfo(info, 0);
         }
-        try {
-            fileWriter.flush();
-        } catch (IOException e) {
-        }
+//        try {
+//            fileWriter.flush();
+//        } catch (IOException e) {
+//        }
     }
 
 
     public void writeRoot(AccessibilityNodeInfo info) {
-        if(!openFile())
+        if(fileWriter==null)
             return;
         write(currentTime(), ":root->\n");
         writeNodeInfo(info, 0);
 
-        try {
-            fileWriter.flush();
-        } catch (IOException e) {
-        }
+//        try {
+//            fileWriter.flush();
+//        } catch (IOException e) {
+//        }
     }
 
     private void writeNodeInfo(AccessibilityNodeInfo info, int depth) {
@@ -75,7 +75,7 @@ public class NodeInfoWriter {
         }
     }
 
-    private boolean openFile() {
+    public boolean open() {
         if (fileWriter != null)
             return true;
         try {
@@ -108,9 +108,9 @@ public class NodeInfoWriter {
     private void writeNodeInfo(AccessibilityNodeInfo info) {
         write(info.getClassName(), ":", info.getText(), " ");
 
-        if (info.isAccessibilityFocused()) {
-            write("AccessibilityFocused", ",");
-        }
+//        if (info.isAccessibilityFocused()) {
+//            write("AccessibilityFocused", ",");
+//        }
         if (info.isCheckable()) {
             write("Checkable", ",");
         }
@@ -120,15 +120,15 @@ public class NodeInfoWriter {
         if (info.isClickable()) {
             write("Clickable", ",");
         }
-        if (info.isContentInvalid()) {
-            write("ContentInvalid", ",");
-        }
-        if (info.isContextClickable()) {
-            write("ContextClickable", ",");
-        }
-        if (info.isDismissable()) {
-            write("Dismissable", ",");
-        }
+//        if (info.isContentInvalid()) {
+//            write("ContentInvalid", ",");
+//        }
+//        if (info.isContextClickable()) {
+//            write("ContextClickable", ",");
+//        }
+//        if (info.isDismissable()) {
+//            write("Dismissable", ",");
+//        }
         if (info.isEditable()) {
             write("Editable", ",");
         }
@@ -141,37 +141,37 @@ public class NodeInfoWriter {
         if (info.isFocused()) {
             write("Focused", ",");
         }
-        if (info.isImportantForAccessibility()) {
-            write("ImportantForAccessibility", ",");
-        }
+//        if (info.isImportantForAccessibility()) {
+//            write("ImportantForAccessibility", ",");
+//        }
         if (info.isLongClickable()) {
             write("LongClickable", ",");
         }
-        if (info.isMultiLine()) {
-            write("MultiLine", ",");
-        }
+//        if (info.isMultiLine()) {
+//            write("MultiLine", ",");
+//        }
         if (info.isPassword()) {
             write("Password", ",");
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            if (info.isScreenReaderFocusable()) {
-                write("ScreenReaderFocusable", ",");
-            }
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+//            if (info.isScreenReaderFocusable()) {
+//                write("ScreenReaderFocusable", ",");
+//            }
+//        }
         if (info.isScrollable()) {
             write("Scrollable", ",");
         }
         if (info.isSelected()) {
             write("Selected", ",");
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            if (info.isShowingHintText()) {
-                write("ShowingHintText", ",");
-            }
-        }
-        if (info.isVisibleToUser()) {
-            write("VisibleToUser", ",");
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            if (info.isShowingHintText()) {
+//                write("ShowingHintText", ",");
+//            }
+//        }
+//        if (info.isVisibleToUser()) {
+//            write("VisibleToUser", ",");
+//        }
         write("\n");
     }
 

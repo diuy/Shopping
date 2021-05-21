@@ -14,12 +14,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
 
     private static final String[] PERMISSIONS = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -81,11 +84,12 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == 0) {
-            if(!checkPermission()){
+            if (!checkPermission()) {
                 showDialog();
             }
         }
     }
+
     public void setupServer() {
         if (!isAccessibilitySettingsOn(this, ShoppingService.class)) {
             startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS));
@@ -117,9 +121,27 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
+    private void toast(String str) {
+        Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG).show();
+    }
 
     public void onStart(View view) {
         Uri uri = Uri.parse(getString(R.string.jd_mt_url));
         startActivity(new Intent("android.intent.action.VIEW", uri));
+
+    }
+
+    public void onTest(View view) {
+        toast("Test");
+    }
+
+    public void onOpenRecord(View view) {
+        if (ShoppingService.getInstance() != null) {
+            ShoppingService.getInstance().openRecord();
+        }
+    }
+
+    public void onLayout(View view) {
+        toast("onLayout");
     }
 }
