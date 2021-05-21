@@ -43,8 +43,17 @@ public class TaskHelper {
         List<AccessibilityNodeInfo> list = info.findAccessibilityNodeInfosByText(text);
         if (list == null || list.isEmpty())
             return null;
+
         return list.get(0);
     }
+    public AccessibilityNodeInfo findFocus() {
+        AccessibilityNodeInfo info = getActiveNode();
+        if (info == null)
+            return null;
+        return info.findFocus(AccessibilityNodeInfo.FOCUS_INPUT);
+    }
+
+
 
     public AccessibilityNodeInfo findOneClickableNode(String text) {
         AccessibilityNodeInfo p = findOneNode(text);
@@ -82,7 +91,7 @@ public class TaskHelper {
     }
 
     public String getResourceString(int resId) {
-        return context.getString(R.string.jd_mt_url);
+        return context.getString(resId);
     }
 
     public void startActivity(String url) {

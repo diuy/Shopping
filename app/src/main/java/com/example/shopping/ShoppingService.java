@@ -3,14 +3,17 @@ package com.example.shopping;
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.GestureDescription;
 import android.graphics.Path;
+import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.Toast;
 
 import com.example.shopping.task.JDTask;
+import com.example.shopping.task.JDTestTask;
+import com.example.shopping.task.ShoppingTask;
 import com.example.shopping.task.TaskHelper;
-import com.example.shopping.tools.HandlerTimer;
+import com.example.shopping.tools.HandlerSchedule;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -20,10 +23,10 @@ import java.util.Locale;
 public class ShoppingService extends AccessibilityService {
     private static final String TAG = "ShoppingService";
     public static ShoppingService service;
-    private JDTask task;
-    private HandlerTimer timer;
+    private ShoppingTask task;
     private NodeInfoWriter writer;
     private TaskHelper taskHelper;
+    private HandlerSchedule schedule;
 
     public static ShoppingService getInstance() {
         return service;
@@ -47,17 +50,64 @@ public class ShoppingService extends AccessibilityService {
         openFile();
     }
 
+    private void onSchedule(String name) {
+        if (task != null) {
+            task.stop();
+            task = null;
+        }
+
+        if ("jd".contentEquals(name)) {
+            task = new JDTask(taskHelper);
+            task.setSuccessListener(new Runnable() {
+                @Override
+                public void run() {
+                    onSuccess();
+                }
+            });
+            task.start();
+        }
+    }
+
+    private void onSuccess() {
+        if (task != null) {
+            task.stop();
+            task = null;
+        }
+    }
+
+    private int dayTime(int h, int m, int s) {
+        return (h * 3600 + m * 60 + s) * 1000;
+    }
+
+    private void createTestTask() {
+        task = new JDTestTask(taskHelper);
+        task.setSuccessListener(new Runnable() {
+            @Override
+            public void run() {
+                onSuccess();
+            }
+        });
+        task.start();
+    }
+
     @Override
     protected void onServiceConnected() {
         super.onServiceConnected();
+
         taskHelper = new TaskHelper(this);
-
-        timer = new HandlerTimer(1000, onTime);
-        timer.start();
-
-        toast("Shopping started!");
+        schedule = new HandlerSchedule(new HandlerSchedule.Listener() {
+            @Override
+            public void onSchedule(String name) {
+                ShoppingService.this.onSchedule(name);
+            }
+        });
+        schedule.start();
+        schedule.addSchedule("jd", dayTime(11, 0, 0));
+        schedule.addSchedule("jd", dayTime(11, 55, 0));
+        createTestTask();//TODO test
         service = this;
         openFile();
+        toast("Shopping started!");
     }
 
     private void toast(String str) {
@@ -75,11 +125,11 @@ public class ShoppingService extends AccessibilityService {
         if (task != null)
             task.onEvent(event);
         if (writer != null) {
-            writer.writeEvent(event);
+            //writer.writeEvent(event);
             //writer.writeRoot(getRootInActiveWindow());
         }
 
-//        Log.d(TAG, "event:" + event.toString());
+        //Log.d(TAG, "event:" + event.toString());
     }
 
     void gestureOnScreen(Path path, Long startTime, Long duration, AccessibilityService.GestureResultCallback callback, Handler handler) {
@@ -139,10 +189,10 @@ public class ShoppingService extends AccessibilityService {
     @Override
     public void onDestroy() {
         closeFile();
-        super.onDestroy();
         toast("助手关闭");
         service = null;
-        timer.stop();
+        schedule.stop();
+        super.onDestroy();
     }
 
 

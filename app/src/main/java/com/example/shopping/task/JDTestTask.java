@@ -8,15 +8,15 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import com.example.shopping.R;
 
 
-public class JDTask extends ShoppingTask {
-    private static final String TAG = "JDTask";
+public class JDTestTask extends ShoppingTask {
+    private static final String TAG = "JDTestTask";
 
     private static final int listenType = AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED |
             AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED |
             AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED;
 
 
-    public JDTask(TaskHelper helper) {
+    public JDTestTask(TaskHelper helper) {
         super(helper);
     }
 
@@ -24,10 +24,12 @@ public class JDTask extends ShoppingTask {
     public void onEvent(AccessibilityEvent event) {
         if (isEnd)
             return;
+
         int t = event.getEventType();
         if ((t & listenType) > 0)
             post();
     }
+
 
     private Runnable runnable;
 
@@ -59,7 +61,7 @@ public class JDTask extends ShoppingTask {
 
     public void start() {
         Log.i(TAG, "start");
-        helper.startActivity(helper.getResourceString(R.string.jd_mt_url));
+        helper.startActivity(helper.getResourceString(R.string.jd_test_url));
         post();
     }
 
@@ -93,8 +95,6 @@ public class JDTask extends ShoppingTask {
         }
     }
 
-    private boolean clickedOrder = false;
-
     private void performSafe() {
         AccessibilityNodeInfo node = helper.findFocus();
         if(node==null)
@@ -110,27 +110,13 @@ public class JDTask extends ShoppingTask {
         node.performAction(AccessibilityNodeInfo.ACTION_CLICK);
         Log.i(TAG, "输入安全校验密码");
     }
-    private void performProduct() {
-        AccessibilityNodeInfo node = helper.findOneClickableNode("立即抢购");
-        if (node != null) {
-            if (node.isEnabled()) {
-                node.performAction(AccessibilityNodeInfo.ACTION_CLICK);
-                clickedOrder = true;
-                Log.i(TAG, "点击立即抢购");
-            } else {
-                if (clickedOrder) {
-                    Log.i(TAG, "抢购失败");
-                    isEnd = true;
-                }
-            }
-            return;
-        }
 
-        node = helper.findOneClickableNode("立即预约");
+    private void performProduct() {
+        AccessibilityNodeInfo node = helper.findOneClickableNode("立即购买");
         if (node != null) {
             if (node.isEnabled()) {
                 node.performAction(AccessibilityNodeInfo.ACTION_CLICK);
-                Log.i(TAG, "点击立即预约");
+                Log.i(TAG, "点击立即购买");
             }
         }
     }
@@ -146,14 +132,6 @@ public class JDTask extends ShoppingTask {
                 helper.pressBack();
                 Log.i(TAG, "无法提交订单，返回");
             }
-            return;
-        }
-        if (!web)
-            return;
-
-        if (helper.findOneNode("抢购失败") != null) {
-            helper.pressBack();
-            Log.i(TAG, "抢购失败");
         }
 
     }
