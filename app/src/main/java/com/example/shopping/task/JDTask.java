@@ -8,7 +8,7 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import com.example.shopping.R;
 
 
-public class JDTask extends ShoppingTask {
+public class JDTask extends Task {
     private static final String TAG = "JDTask";
 
     private static final int listenType = AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED |
@@ -20,6 +20,10 @@ public class JDTask extends ShoppingTask {
         super(helper);
     }
 
+    @Override
+    public String name() {
+        return TAG;
+    }
 
     public void onEvent(AccessibilityEvent event) {
         if (isEnd)
@@ -70,6 +74,7 @@ public class JDTask extends ShoppingTask {
             handler.removeCallbacks(runnable);
     }
 
+
     //商品 立即预约 已预约  立即抢购
     //抢购 TEXT 京东 很遗憾
     //订单 填写订单 提交订单
@@ -90,6 +95,10 @@ public class JDTask extends ShoppingTask {
             performSafe();
         } else if ("com.jd.lib.cashier.pay.view.CashierPayActivity".contentEquals(activity)) {
             performPay();
+        } else {
+            AccessibilityNodeInfo node = helper.findOneClickableNode("知道了");
+            if (node != null)
+                node.performAction(AccessibilityNodeInfo.ACTION_CLICK);
         }
     }
 
@@ -97,19 +106,20 @@ public class JDTask extends ShoppingTask {
 
     private void performSafe() {
         AccessibilityNodeInfo node = helper.findFocus();
-        if(node==null)
+        if (node == null)
             return;
         Bundle arguments = new Bundle();
         arguments.putCharSequence(AccessibilityNodeInfo.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE, "zf31415926");
-        node.performAction(AccessibilityNodeInfo.ACTION_SET_TEXT,arguments);
+        node.performAction(AccessibilityNodeInfo.ACTION_SET_TEXT, arguments);
 
         node = helper.findOneClickableNode("确定");
-        if(node==null)
+        if (node == null)
             return;
 
         node.performAction(AccessibilityNodeInfo.ACTION_CLICK);
         Log.i(TAG, "输入安全校验密码");
     }
+
     private void performProduct() {
         AccessibilityNodeInfo node = helper.findOneClickableNode("立即抢购");
         if (node != null) {
@@ -120,6 +130,7 @@ public class JDTask extends ShoppingTask {
             } else {
                 if (clickedOrder) {
                     Log.i(TAG, "抢购失败");
+                    notifyComplete(false);
                     isEnd = true;
                 }
             }
@@ -159,7 +170,7 @@ public class JDTask extends ShoppingTask {
     }
 
     private void performPay() {
-        notifySuccess();
+        notifyComplete(true);
         Log.i(TAG, "提交订单成功，请支付");
         isEnd = true;
     }

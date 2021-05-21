@@ -8,7 +8,7 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import com.example.shopping.R;
 
 
-public class JDTestTask extends ShoppingTask {
+public class JDTestTask extends Task {
     private static final String TAG = "JDTestTask";
 
     private static final int listenType = AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED |
@@ -20,6 +20,10 @@ public class JDTestTask extends ShoppingTask {
         super(helper);
     }
 
+    @Override
+    public String name() {
+        return TAG;
+    }
 
     public void onEvent(AccessibilityEvent event) {
         if (isEnd)
@@ -137,7 +141,7 @@ public class JDTestTask extends ShoppingTask {
     }
 
     private void performPay() {
-        notifySuccess();
+        notifyComplete(true);
         Log.i(TAG, "提交订单成功，请支付");
         isEnd = true;
     }

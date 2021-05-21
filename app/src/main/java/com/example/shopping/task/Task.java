@@ -4,16 +4,16 @@ import android.os.Handler;
 import android.os.Looper;
 import android.view.accessibility.AccessibilityEvent;
 
-public abstract class ShoppingTask {
+public abstract class Task {
     protected final TaskHelper helper;
 
     protected final Handler handler = new Handler(Looper.myLooper());
 
-    private Runnable successListener;
+    private Listener listener;
 
     protected boolean isEnd;
 
-    public ShoppingTask(TaskHelper helper) {
+    public Task(TaskHelper helper) {
         this.helper = helper;
     }
 
@@ -23,12 +23,18 @@ public abstract class ShoppingTask {
 
     public abstract void stop();
 
-    protected void notifySuccess() {
-        if (successListener != null)
-            successListener.run();
+    public abstract String name();
+
+    protected void notifyComplete(boolean success) {
+        if (listener != null)
+            listener.onComplete(success);
     }
 
-    public void setSuccessListener(Runnable successListener) {
-        this.successListener = successListener;
+    public interface Listener {
+        void onComplete(boolean success);
+    }
+
+    public void setListener(Listener listener) {
+        this.listener = listener;
     }
 }

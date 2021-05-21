@@ -1,27 +1,27 @@
 package com.example.shopping.task;
 
 import android.accessibilityservice.AccessibilityService;
-import android.app.Activity;
+import android.annotation.SuppressLint;
+import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.PowerManager;
 import android.util.Log;
 import android.view.accessibility.AccessibilityNodeInfo;
 
-import androidx.annotation.Nullable;
-
-import com.example.shopping.R;
-
-import java.lang.ref.WeakReference;
 import java.util.List;
+
+import static android.content.Context.KEYGUARD_SERVICE;
 
 
 public class TaskHelper {
     private final Context context;
     private final AccessibilityService accessibilityService;
     private String currentActivity;
+    private static final String TAG = "TaskHelper";
 
     public TaskHelper(AccessibilityService accessibilityService) {
         this.context = accessibilityService;
@@ -32,7 +32,7 @@ public class TaskHelper {
         return accessibilityService.getRootInActiveWindow();
     }
 
-    public void pressBack(){
+    public void pressBack() {
         accessibilityService.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK);
     }
 
@@ -46,13 +46,13 @@ public class TaskHelper {
 
         return list.get(0);
     }
+
     public AccessibilityNodeInfo findFocus() {
         AccessibilityNodeInfo info = getActiveNode();
         if (info == null)
             return null;
         return info.findFocus(AccessibilityNodeInfo.FOCUS_INPUT);
     }
-
 
 
     public AccessibilityNodeInfo findOneClickableNode(String text) {
@@ -65,25 +65,25 @@ public class TaskHelper {
         return null;
     }
 
-    public AccessibilityNodeInfo findContainString(String text){
+    public AccessibilityNodeInfo findContainString(String text) {
         AccessibilityNodeInfo info = getActiveNode();
         if (info == null)
             return null;
-        return findContainString(info,text);
+        return findContainString(info, text);
     }
 
-    private static AccessibilityNodeInfo findContainString(AccessibilityNodeInfo info,String text){
-        if(info==null)
+    private static AccessibilityNodeInfo findContainString(AccessibilityNodeInfo info, String text) {
+        if (info == null)
             return null;
         CharSequence cs = info.getText();
-        if(cs !=null && cs.length()>=text.length()){
-            if( cs.toString().contains(text)){
+        if (cs != null && cs.length() >= text.length()) {
+            if (cs.toString().contains(text)) {
                 return info;
             }
         }
-        for (int i = 0 ; i < info.getChildCount() ; i ++){
-            AccessibilityNodeInfo n = findContainString(info.getChild(i),text);
-            if(n!=null)
+        for (int i = 0; i < info.getChildCount(); i++) {
+            AccessibilityNodeInfo n = findContainString(info.getChild(i), text);
+            if (n != null)
                 return n;
         }
 
@@ -172,8 +172,30 @@ public class TaskHelper {
     }
 
     public boolean checkActivity(String activity) {
-        if(currentActivity==null)
+        if (currentActivity == null)
             return false;
         return activity.contentEquals(currentActivity);
     }
+
+    @SuppressLint("Wakelock")
+    @SuppressWarnings("deprecation")
+    public  void wakeUpAndUnlock() {
+        // 获取电源管理器对象
+        PowerManager pm = (PowerManager) context
+                .getSystemService(Context.POWER_SERVICE);
+        // 获取PowerManager.WakeLock对象，后面的参数|表示同时传入两个值，最后的是调试用的Tag
+        @SuppressLint("InvalidWakeLockTag") PowerManager.WakeLock wl = pm.newWakeLock(
+                PowerManager.ACQUIRE_CAUSES_WAKEUP
+                        | PowerManager.SCREEN_BRIGHT_WAKE_LOCK, "bright");
+        // 点亮屏幕
+        wl.acquire();
+        // 释放
+        wl.release();
+        // 得到键盘锁管理器对象
+        KeyguardManager km = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
+        KeyguardManager.KeyguardLock kl = km.newKeyguardLock("unLock");
+        // 解锁
+        kl.disableKeyguard();
+    }
+
 }

@@ -3,7 +3,6 @@ package com.example.shopping;
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.GestureDescription;
 import android.graphics.Path;
-import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
@@ -11,7 +10,8 @@ import android.widget.Toast;
 
 import com.example.shopping.task.JDTask;
 import com.example.shopping.task.JDTestTask;
-import com.example.shopping.task.ShoppingTask;
+import com.example.shopping.task.NotifyTask;
+import com.example.shopping.task.Task;
 import com.example.shopping.task.TaskHelper;
 import com.example.shopping.tools.HandlerSchedule;
 
@@ -23,7 +23,7 @@ import java.util.Locale;
 public class ShoppingService extends AccessibilityService {
     private static final String TAG = "ShoppingService";
     public static ShoppingService service;
-    private ShoppingTask task;
+    private Task task;
     private NodeInfoWriter writer;
     private TaskHelper taskHelper;
     private HandlerSchedule schedule;
@@ -36,13 +36,6 @@ public class ShoppingService extends AccessibilityService {
 
     }
 
-    private final Runnable onTime = () -> {
-        if (task == null) {
-
-            task = new JDTask(taskHelper);
-            task.start();
-        }
-    };
 
     @Override
     public void onCreate() {
@@ -55,39 +48,45 @@ public class ShoppingService extends AccessibilityService {
             task.stop();
             task = null;
         }
+        taskHelper.wakeUpAndUnlock();
+        startTask(name);
+    }
 
-        if ("jd".contentEquals(name)) {
+    private void startTask(String name) {
+        if ("JDTask".contentEquals(name)) {
             task = new JDTask(taskHelper);
-            task.setSuccessListener(new Runnable() {
+        } else if ("JDTestTask".contentEquals(name)) {
+            task = new JDTestTask(taskHelper);
+        }
+        if (task != null) {
+            task.setListener(new Task.Listener() {
                 @Override
-                public void run() {
-                    onSuccess();
+                public void onComplete(boolean success) {
+                    Log.i(TAG, "Task completed:" + task.name() + "->" + success);
+                    task = null;
+                    startNotifyTask();
                 }
             });
             task.start();
+            Log.i(TAG, "Task started:" + task.name());
         }
     }
 
-    private void onSuccess() {
-        if (task != null) {
-            task.stop();
-            task = null;
-        }
+    private void startNotifyTask() {
+        task = new NotifyTask(taskHelper);
+        task.setListener(new Task.Listener() {
+            @Override
+            public void onComplete(boolean success) {
+                Log.i(TAG, "Task completed:" + task.name() + "->" + success);
+                task = null;
+            }
+        });
+        task.start();
+        Log.i(TAG, "Task started:" + task.name());
     }
 
     private int dayTime(int h, int m, int s) {
         return (h * 3600 + m * 60 + s) * 1000;
-    }
-
-    private void createTestTask() {
-        task = new JDTestTask(taskHelper);
-        task.setSuccessListener(new Runnable() {
-            @Override
-            public void run() {
-                onSuccess();
-            }
-        });
-        task.start();
     }
 
     @Override
@@ -101,10 +100,18 @@ public class ShoppingService extends AccessibilityService {
                 ShoppingService.this.onSchedule(name);
             }
         });
+        schedule.addSchedule("JDTask", dayTime(11, 54, 0));
         schedule.start();
-        schedule.addSchedule("jd", dayTime(11, 0, 0));
-        schedule.addSchedule("jd", dayTime(11, 55, 0));
-        createTestTask();//TODO test
+
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                taskHelper.wakeUpAndUnlock();
+//                startTask("JDTestTask");//TODO test
+//
+//            }
+//        }, 5 * 1000);
+
         service = this;
         openFile();
         toast("Shopping started!");
@@ -125,11 +132,11 @@ public class ShoppingService extends AccessibilityService {
         if (task != null)
             task.onEvent(event);
         if (writer != null) {
-            //writer.writeEvent(event);
+            writer.writeEvent(event);
             //writer.writeRoot(getRootInActiveWindow());
         }
 
-        //Log.d(TAG, "event:" + event.toString());
+        Log.d(TAG, "event:" + event.toString());
     }
 
     void gestureOnScreen(Path path, Long startTime, Long duration, AccessibilityService.GestureResultCallback callback, Handler handler) {
@@ -148,7 +155,7 @@ public class ShoppingService extends AccessibilityService {
 
     @Override
     public void onInterrupt() {
-        toast("助手中断");
+        toast("Shopping is interrupted");
         service = null;
     }
 
@@ -178,7 +185,6 @@ public class ShoppingService extends AccessibilityService {
         if (!writer.open()) {
             Log.e(TAG, "failed to open record file:" + logFile.getAbsolutePath());
         }
-
     }
 
     public void openRecord() {
@@ -189,7 +195,7 @@ public class ShoppingService extends AccessibilityService {
     @Override
     public void onDestroy() {
         closeFile();
-        toast("助手关闭");
+        toast("Shopping closed");
         service = null;
         schedule.stop();
         super.onDestroy();
