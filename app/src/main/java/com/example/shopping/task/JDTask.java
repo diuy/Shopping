@@ -60,10 +60,15 @@ public class JDTask extends Task {
         }
         handler.post(runnable);
     }
-
+    private String pay;
     public void start() {
         Log.i(TAG, "start");
-        helper.startActivity(helper.getResourceString(R.string.jd_mt_url));
+        if (!helper.startActivity(helper.getResourceString(R.string.jd_mt_url))) {
+            Log.e(TAG, "startActivity failed");
+            notifyComplete(false);
+            return;
+        }
+        pay = helper.readConfig("pay");
         post();
     }
 
@@ -103,13 +108,14 @@ public class JDTask extends Task {
     }
 
     private boolean clickedOrder = false;
+    private boolean clickedBook = false;
 
     private void performSafe() {
         AccessibilityNodeInfo node = helper.findFocus();
         if (node == null)
             return;
         Bundle arguments = new Bundle();
-        arguments.putCharSequence(AccessibilityNodeInfo.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE, "zf31415926");
+        arguments.putCharSequence(AccessibilityNodeInfo.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE, pay);
         node.performAction(AccessibilityNodeInfo.ACTION_SET_TEXT, arguments);
 
         node = helper.findOneClickableNode("确定");
@@ -139,16 +145,17 @@ public class JDTask extends Task {
 
         node = helper.findOneClickableNode("立即预约");
         if (node != null) {
-            if (node.isEnabled()) {
+            if (node.isEnabled() && !clickedBook) {
                 node.performAction(AccessibilityNodeInfo.ACTION_CLICK);
                 Log.i(TAG, "点击立即预约");
+                clickedBook = true;
             }
         }
     }
 
     private void performOrder(boolean web) {
         AccessibilityNodeInfo node;
-        node = helper.findOneClickableNode("提交订单");
+        node = helper.findOneClickableNodeInWeb("提交订单");
         if (node != null) {
             if (node.isEnabled()) {
                 node.performAction(AccessibilityNodeInfo.ACTION_CLICK);
@@ -162,7 +169,7 @@ public class JDTask extends Task {
         if (!web)
             return;
 
-        if (helper.findOneNode("抢购失败") != null) {
+        if (helper.findOneNodeInWeb("抢购失败") != null) {
             helper.pressBack();
             Log.i(TAG, "抢购失败");
         }

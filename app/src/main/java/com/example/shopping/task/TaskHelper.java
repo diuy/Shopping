@@ -3,8 +3,10 @@ package com.example.shopping.task;
 import android.accessibilityservice.AccessibilityService;
 import android.annotation.SuppressLint;
 import android.app.KeyguardManager;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -65,6 +67,37 @@ public class TaskHelper {
         return null;
     }
 
+    private static AccessibilityNodeInfo findOneNodeInWeb(AccessibilityNodeInfo info, String text) {
+        if (info == null)
+            return null;
+        CharSequence cs = info.getText();
+        if (cs != null && cs.toString().contentEquals(text)) {
+            return info;
+        }
+        for (int i = 0; i < info.getChildCount(); i++) {
+            AccessibilityNodeInfo n = findOneNodeInWeb(info.getChild(i), text);
+            if (n != null)
+                return n;
+        }
+
+        return null;
+    }
+
+    public AccessibilityNodeInfo findOneNodeInWeb(String text) {
+        return findOneNodeInWeb(getActiveNode(), text);
+    }
+
+    public AccessibilityNodeInfo findOneClickableNodeInWeb(String text) {
+        AccessibilityNodeInfo p = findOneNodeInWeb(text);
+
+        while (p != null) {
+            if (p.isClickable())
+                return p;
+            p = p.getParent();
+        }
+        return null;
+    }
+
     public AccessibilityNodeInfo findContainString(String text) {
         AccessibilityNodeInfo info = getActiveNode();
         if (info == null)
@@ -94,9 +127,16 @@ public class TaskHelper {
         return context.getString(resId);
     }
 
-    public void startActivity(String url) {
-        Uri uri = Uri.parse(url);
-        context.startActivity(new Intent("android.intent.action.VIEW", uri).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+    public boolean startActivity(String url) {
+        try {
+            Uri uri = Uri.parse(url);
+            context.startActivity(new Intent("android.intent.action.VIEW", uri).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+            return true;
+        } catch (Exception e) {
+            Log.e(TAG, "startActivity failed:" + url);
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public boolean launchPackage(String packageName) {
@@ -179,7 +219,7 @@ public class TaskHelper {
 
     @SuppressLint("Wakelock")
     @SuppressWarnings("deprecation")
-    public  void wakeUpAndUnlock() {
+    public void wakeUpAndUnlock() {
         // 获取电源管理器对象
         PowerManager pm = (PowerManager) context
                 .getSystemService(Context.POWER_SERVICE);
@@ -197,5 +237,18 @@ public class TaskHelper {
         // 解锁
         kl.disableKeyguard();
     }
+
+    public void saveConfig(String key, String value) {
+        SharedPreferences sp = context.getSharedPreferences("config", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString(key, value);
+        editor.apply();
+    }
+
+    public String readConfig(String key) {
+        SharedPreferences sp = context.getSharedPreferences("config", Context.MODE_PRIVATE);
+        return sp.getString(key, "");
+    }
+
 
 }

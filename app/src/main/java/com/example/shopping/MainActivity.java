@@ -9,13 +9,17 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -30,6 +34,17 @@ public class MainActivity extends AppCompatActivity {
 
     //Manifest.permission.CAMERA
 
+    public void saveConfig(String key, String value) {
+        SharedPreferences sp = getSharedPreferences("config", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString(key, value);
+        editor.apply();
+    }
+
+    public String readConfig(String key) {
+        SharedPreferences sp = getSharedPreferences("config", Context.MODE_PRIVATE);
+        return sp.getString(key, "");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +57,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        EditText text = findViewById(R.id.textQQ);
+        text.setText(readConfig("qq"));
+
+        text = findViewById(R.id.textPay);
+        text.setText(readConfig("pay"));
+        Switch btn = findViewById(R.id.btnLog);
+
+        if (readConfig("log").equals("true")) {
+            btn.setChecked(true);
+        } else {
+            btn.setChecked(false);
+        }
     }
 
     private boolean checkPermission() {
@@ -121,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
+
     private void toast(String str) {
         Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG).show();
     }
@@ -143,5 +171,42 @@ public class MainActivity extends AppCompatActivity {
 
     public void onLayout(View view) {
         toast("onLayout");
+    }
+
+    public void onWriteRoot(View view) {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (ShoppingService.getInstance() != null) {
+                    ShoppingService.getInstance().writeRoot();
+                }
+            }
+        }, 5000);
+    }
+
+    public void onSetQQ(View view) {
+        EditText text = findViewById(R.id.textQQ);
+        saveConfig("qq", text.getText().toString());
+
+    }
+
+    public void onSetPay(View view) {
+        EditText text = findViewById(R.id.textPay);
+        saveConfig("pay", text.getText().toString());
+    }
+
+    public void onLogSwitch(View view) {
+        Switch btn = findViewById(R.id.btnLog);
+        if (btn.isChecked()) {
+            saveConfig("log", "true");
+            if (ShoppingService.getInstance() != null) {
+                ShoppingService.getInstance().openRecord();
+            }
+        } else {
+            saveConfig("log", "false");
+            if (ShoppingService.getInstance() != null) {
+                ShoppingService.getInstance().closeFile();
+            }
+        }
     }
 }

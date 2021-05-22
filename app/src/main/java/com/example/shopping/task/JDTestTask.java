@@ -63,9 +63,18 @@ public class JDTestTask extends Task {
         handler.post(runnable);
     }
 
+    private String pay;
+
     public void start() {
         Log.i(TAG, "start");
-        helper.startActivity(helper.getResourceString(R.string.jd_test_url));
+
+        if (!helper.startActivity(helper.getResourceString(R.string.jd_test_url))) {
+            Log.e(TAG, "startActivity failed");
+            notifyComplete(false);
+            return;
+        }
+        pay = helper.readConfig("pay");
+
         post();
     }
 
@@ -101,14 +110,14 @@ public class JDTestTask extends Task {
 
     private void performSafe() {
         AccessibilityNodeInfo node = helper.findFocus();
-        if(node==null)
+        if (node == null)
             return;
         Bundle arguments = new Bundle();
-        arguments.putCharSequence(AccessibilityNodeInfo.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE, "zf31415926");
-        node.performAction(AccessibilityNodeInfo.ACTION_SET_TEXT,arguments);
+        arguments.putCharSequence(AccessibilityNodeInfo.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE, pay);
+        node.performAction(AccessibilityNodeInfo.ACTION_SET_TEXT, arguments);
 
         node = helper.findOneClickableNode("确定");
-        if(node==null)
+        if (node == null)
             return;
 
         node.performAction(AccessibilityNodeInfo.ACTION_CLICK);

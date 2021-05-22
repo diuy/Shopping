@@ -25,13 +25,26 @@ public abstract class Task {
 
     public abstract String name();
 
+    public static boolean compareString(CharSequence l, CharSequence r) {
+        if (l == null)
+            return r == null || r.length() == 0;
+        return l.toString().contentEquals(r);
+    }
+
     protected void notifyComplete(boolean success) {
-        if (listener != null)
-            listener.onComplete(success);
+        if (listener != null) {
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    if (listener != null)
+                        listener.onComplete(Task.this, success);
+                }
+            });
+        }
     }
 
     public interface Listener {
-        void onComplete(boolean success);
+        void onComplete(Task task, boolean success);
     }
 
     public void setListener(Listener listener) {

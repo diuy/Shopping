@@ -9,4 +9,4 @@
     android:canRequestFilterKeyEvents="true"
     android:description="@string/app_name"
     android:notificationTimeout="100"
-    android:packageNames="com.jingdong.app.mall,com.tmall.wireless,com.example.shopping,com.tencent.mobileqq" />
+    android:packageNames="com.jingdong.app.mall,com.tmall.wireless,com.example.shopping,com.tencent.mobileqq,com.xiaomi.youpin" />

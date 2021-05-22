@@ -8,10 +8,8 @@ import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.Toast;
 
-import com.example.shopping.task.JDTask;
-import com.example.shopping.task.JDTestTask;
-import com.example.shopping.task.NotifyTask;
 import com.example.shopping.task.Task;
+import com.example.shopping.task.TaskFactory;
 import com.example.shopping.task.TaskHelper;
 import com.example.shopping.tools.HandlerSchedule;
 
@@ -40,7 +38,8 @@ public class ShoppingService extends AccessibilityService {
     @Override
     public void onCreate() {
         super.onCreate();
-        openFile();
+        toast("onCreate");
+
     }
 
     private void onSchedule(String name) {
@@ -53,18 +52,18 @@ public class ShoppingService extends AccessibilityService {
     }
 
     private void startTask(String name) {
-        if ("JDTask".contentEquals(name)) {
-            task = new JDTask(taskHelper);
-        } else if ("JDTestTask".contentEquals(name)) {
-            task = new JDTestTask(taskHelper);
-        }
+        task = TaskFactory.createTask(name, taskHelper);
+
         if (task != null) {
             task.setListener(new Task.Listener() {
                 @Override
-                public void onComplete(boolean success) {
-                    Log.i(TAG, "Task completed:" + task.name() + "->" + success);
-                    task = null;
-                    startNotifyTask();
+                public void onComplete(Task t, boolean success) {
+                    Log.i(TAG, "Task completed:" + t.name() + "->" + success);
+                    if (t == task) {
+                        task = null;
+                        if (success)
+                            startNotifyTask();
+                    }
                 }
             });
             task.start();
@@ -73,12 +72,13 @@ public class ShoppingService extends AccessibilityService {
     }
 
     private void startNotifyTask() {
-        task = new NotifyTask(taskHelper);
+        task = TaskFactory.createNotifyTask(taskHelper);
         task.setListener(new Task.Listener() {
             @Override
-            public void onComplete(boolean success) {
-                Log.i(TAG, "Task completed:" + task.name() + "->" + success);
-                task = null;
+            public void onComplete(Task t, boolean success) {
+                Log.i(TAG, "Task completed:" + t.name() + "->" + success);
+                if (t == task)
+                    task = null;
             }
         });
         task.start();
@@ -94,15 +94,22 @@ public class ShoppingService extends AccessibilityService {
         super.onServiceConnected();
 
         taskHelper = new TaskHelper(this);
+        openFile();
+
         schedule = new HandlerSchedule(new HandlerSchedule.Listener() {
             @Override
             public void onSchedule(String name) {
                 ShoppingService.this.onSchedule(name);
             }
         });
-        schedule.addSchedule("JDTask", dayTime(11, 54, 0));
-        schedule.start();
+        schedule.addSchedule(TaskFactory.NAME_JDTask, dayTime(11, 54, 0));
+        schedule.addSchedule(TaskFactory.NAME_YPTask, dayTime(9, 0, 0));
+        schedule.addSchedule(TaskFactory.NAME_YPTask, dayTime(9, 56, 0));
 
+        schedule.start();
+//         startTask(TaskFactory.NAME_NotifyTask); //TODO test
+
+//        startTask(TaskFactory.NAME_JDTestTask); //TODO test
 //        new Handler().postDelayed(new Runnable() {
 //            @Override
 //            public void run() {
@@ -113,7 +120,6 @@ public class ShoppingService extends AccessibilityService {
 //        }, 5 * 1000);
 
         service = this;
-        openFile();
         toast("Shopping started!");
     }
 
@@ -134,9 +140,13 @@ public class ShoppingService extends AccessibilityService {
         if (writer != null) {
             writer.writeEvent(event);
             //writer.writeRoot(getRootInActiveWindow());
+             Log.d(TAG, "event:" + event.toString());
         }
+        // Log.d(TAG, "event:" + event.toString());
+    }
 
-        Log.d(TAG, "event:" + event.toString());
+    public void writeRoot() {
+        writer.writeRoot(getRootInActiveWindow());
     }
 
     void gestureOnScreen(Path path, Long startTime, Long duration, AccessibilityService.GestureResultCallback callback, Handler handler) {
@@ -159,16 +169,21 @@ public class ShoppingService extends AccessibilityService {
         service = null;
     }
 
-    private void closeFile() {
+    public void closeFile() {
         if (writer != null) {
             writer.close();
             writer = null;
         }
     }
 
-    private void openFile() {
+    public void openFile() {
         if (writer != null)
             return;
+
+        if(!"true".equals(taskHelper.readConfig("log"))){
+            return;
+        }
+
         File root = getExternalFilesDir(null);
         File dataDir = new File(root, "shopping");
         if (!dataDir.exists() && !dataDir.mkdir()) {

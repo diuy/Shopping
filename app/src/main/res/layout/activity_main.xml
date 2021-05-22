@@ -9,29 +9,108 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal" android:onClick="onLayout">
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnStart"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onStart"
-            android:text="Start"
-            android:visibility="visible" />
-        <Button
-            android:id="@+id/btnTest"
-            android:layout_width="wrap_content"
+            android:onClick="onLayout"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:onClick="onStart"
+                android:text="Start"
+                android:visibility="visible" />
+
+
+            <Button
+                android:id="@+id/btnTest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:onClick="onTest"
+                android:text="Test"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/btnWriteRoot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:onClick="onWriteRoot"
+                android:text="WriteRoot"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onTest"
-            android:text="Test"
-            android:visibility="visible" />
-        <Button
-            android:id="@+id/btnOpenRecord"
-            android:layout_width="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+
+            android:onClick="onLayout"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/textQQ"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btnSetQQ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onSetQQ"
+                android:text="QQ"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+
             android:layout_height="wrap_content"
-            android:onClick="onOpenRecord"
-            android:text="OpenRecord"
-            android:visibility="visible"  />
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:onClick="onLayout"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/textPay"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:password="true" />
+
+            <Button
+                android:id="@+id/btnSetPay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onSetPay"
+                android:text="Pay"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:onClick="onLayout"
+            android:orientation="horizontal">
+
+            <Switch
+                android:id="@+id/btnLog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onLogSwitch"
+                android:text="日志开关" />
+        </LinearLayout>
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

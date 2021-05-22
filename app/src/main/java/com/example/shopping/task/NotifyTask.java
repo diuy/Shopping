@@ -4,6 +4,8 @@ import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 
+import com.example.shopping.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,9 +32,15 @@ public class NotifyTask extends Task {
     @Override
     public void start() {
         Log.i(TAG, "start");
-        helper.startActivity("mqqwpa://im/chat?chat_type=wpa&uin=409445928&version=1");
+        String qq = helper.readConfig("qq");
+        Log.i(TAG, "qq:" + qq);
+        if (!helper.startActivity("mqqwpa://im/chat?chat_type=wpa&uin=" + qq + "&version=1")) {
+            Log.e(TAG, "startActivity failed");
+            notifyComplete(false);
+            return;
+        }
         runnable = new StartRunner();
-        handler.postDelayed(runnable, 1000);
+        handler.postDelayed(runnable, 4000);
     }
 
     private void findImageView(AccessibilityNodeInfo node, List<AccessibilityNodeInfo> nodes) {
@@ -57,22 +65,29 @@ public class NotifyTask extends Task {
 
         @Override
         public void run() {
+
+            boolean r = false;
+
             if (helper.checkActivity("com.tencent.mobileqq.activity.SplashActivity")) {
                 List<AccessibilityNodeInfo> nodes = new ArrayList<>();
                 findImageView(helper.getActiveNode(), nodes);
                 if (nodes.size() <= 7) {
                     Log.e(TAG, "cannot find call image");
-                    notifyComplete(false);
+                    //notifyComplete(false);
                 } else {
                     Log.i(TAG, "click call image");
                     nodes.get(7).performAction(AccessibilityNodeInfo.ACTION_CLICK);
                     runnable = new CallRunner();
-                    handler.postDelayed(runnable, 500);
+                    handler.postDelayed(runnable, 2000);
+                    r = true;
                 }
-            } else {
-                time += 100;
+            }
+            if (!r) {
+                time += 500;
                 if (time < 10000) {
-                    handler.postDelayed(runnable, 1000);
+                    handler.postDelayed(runnable, 500);
+                } else {
+                    notifyComplete(false);
                 }
             }
         }
