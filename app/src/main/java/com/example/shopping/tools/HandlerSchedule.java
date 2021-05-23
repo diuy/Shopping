@@ -1,13 +1,16 @@
 package com.example.shopping.tools;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 public class HandlerSchedule {
-    private HandlerTimer timer;
-    private Listener listener;
-    private List<Item> items = new ArrayList<>();
+    private static final String TAG = "HandlerSchedule";
+    private final HandlerTimer timer;
+    private final Listener listener;
+    private final List<Item> items = new ArrayList<>();
     private long lastTime;
 
     public HandlerSchedule(Listener listener) {
@@ -63,10 +66,11 @@ public class HandlerSchedule {
             lastTime = nowTime;
             return;
         }
-
+//        Log.d(TAG,"onTimer");
         for (Item item : items) {
             if (testInTime(lastTime, nowTime, item.getTime())) {
                 if (listener != null) {
+                    Log.d(TAG,"onSchedule->"+item.getName());
                     listener.onSchedule(item.getName());
                 }
             }

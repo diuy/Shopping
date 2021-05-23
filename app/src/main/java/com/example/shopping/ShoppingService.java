@@ -25,6 +25,7 @@ import com.example.shopping.tools.HandlerSchedule;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -118,9 +119,10 @@ public class ShoppingService extends AccessibilityService {
         schedule.addSchedule(TaskFactory.NAME_JDTask, dayTime(11, 54, 0));
         schedule.addSchedule(TaskFactory.NAME_YPTask, dayTime(9, 0, 0));
         schedule.addSchedule(TaskFactory.NAME_YPTask, dayTime(9, 56, 0));
+        //schedule.addSchedule(TaskFactory.NAME_YPTask, getTodayTimeMillisecond()+30*1000);
 
         schedule.start();
-//         startTask(TaskFactory.NAME_NotifyTask); //TODO test
+ //        startTask(TaskFactory.NAME_NotifyTask); //TODO test
 
 //        startTask(TaskFactory.NAME_JDTestTask); //TODO test
 //        new Handler().postDelayed(new Runnable() {
@@ -139,7 +141,16 @@ public class ShoppingService extends AccessibilityService {
     private void toast(String str) {
         Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG).show();
     }
-
+    private static final int HOUR_MILLISECOND = 3600000;
+    private static final int MINUTE_MILLISECOND = 60000;
+    private static final int SECOND_MILLISECOND = 1000;
+    private int getTodayTimeMillisecond() {
+        Calendar calendar = Calendar.getInstance();
+        int h = calendar.get(Calendar.HOUR_OF_DAY);
+        int m = calendar.get(Calendar.MINUTE);
+        int s = calendar.get(Calendar.SECOND);
+        return h * HOUR_MILLISECOND + m * MINUTE_MILLISECOND + s * SECOND_MILLISECOND ;
+    }
 
     //实现辅助功能
     @Override

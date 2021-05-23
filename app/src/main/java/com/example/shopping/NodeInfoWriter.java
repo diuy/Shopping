@@ -28,8 +28,8 @@ public class NodeInfoWriter {
 
         AccessibilityNodeInfo info = event.getSource();
         if (info != null) {
-            if (info.getWindow() != null)
-                write("window->\n", info.getWindow().toString(), "\n");
+//            if (info.getWindow() != null)
+//                write("window->\n", info.getWindow().toString(), "\n");
             write("source->\n");
             writeNodeInfo(info, 0);
         }
@@ -104,9 +104,26 @@ public class NodeInfoWriter {
         } catch (IOException e) {
         }
     }
+//import android.view.View;
+//import android.widget.EditText;
+    private static final String PREFIX_VIEW="android.view.";
+    private static final String PREFIX_WIDGET="android.widget.";
 
     private void writeNodeInfo(AccessibilityNodeInfo info) {
-        write(info.getClassName(), ":", info.getText(), " ");
+        String className = "null";
+        CharSequence cn = info.getClassName();
+        if(cn!=null){
+            String s = cn.toString();
+            if(s.startsWith(PREFIX_VIEW)){
+                className=s.substring(PREFIX_VIEW.length());
+            }else if (s.startsWith(PREFIX_WIDGET)){
+                className=s.substring(PREFIX_WIDGET.length());
+            }else{
+                className = s;
+            }
+        }
+
+        write(className, ":", info.getText(), " ");
 
 //        if (info.isAccessibilityFocused()) {
 //            write("AccessibilityFocused", ",");

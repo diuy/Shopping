@@ -13,7 +13,7 @@ public class YPTask extends Task {
             "actId=60a65349cff47e00014257b7&spmref=YouPin_A.share.share_pop_copy.4.66988930&share=1";
     private static final int listenType = AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED |
             AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED |
-            AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED;
+            AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED|AccessibilityEvent.TYPE_VIEW_CLICKED;
     private Runnable runnable;
 
     public YPTask(TaskHelper helper) {
@@ -72,9 +72,13 @@ public class YPTask extends Task {
     private void perform() {
         AccessibilityNodeInfo node = helper.findOneClickableNodeInWeb("立即抢购");
         if (node != null) {
-            if (node.isEnabled() && !compareString(lastClick, "立即抢购")) {
+//            if (node.isEnabled() && !compareString(lastClick, "立即抢购")) {
+//                node.performAction(AccessibilityNodeInfo.ACTION_CLICK);
+//                lastClick = "立即抢购";
+//                Log.i(TAG, "点击立即抢购");
+//            }
+            if (node.isEnabled()) {//多次点击，点击后触发click时间，然后再次触发点击，以此循环
                 node.performAction(AccessibilityNodeInfo.ACTION_CLICK);
-                lastClick = "立即抢购";
                 Log.i(TAG, "点击立即抢购");
             }
             return;
