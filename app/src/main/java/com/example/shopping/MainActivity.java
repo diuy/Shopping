@@ -18,6 +18,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -153,36 +154,11 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG).show();
     }
 
-    public void onStart(View view) {
-        Uri uri = Uri.parse(getString(R.string.jd_mt_url));
-        startActivity(new Intent("android.intent.action.VIEW", uri));
-
-    }
-
-    public void onTest(View view) {
-        toast("Test");
-    }
-
-    public void onOpenRecord(View view) {
-        if (ShoppingService.getInstance() != null) {
-            ShoppingService.getInstance().openRecord();
-        }
-    }
 
     public void onLayout(View view) {
         toast("onLayout");
     }
 
-    public void onWriteRoot(View view) {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (ShoppingService.getInstance() != null) {
-                    ShoppingService.getInstance().writeRoot();
-                }
-            }
-        }, 5000);
-    }
 
     public void onSetQQ(View view) {
         EditText text = findViewById(R.id.textQQ);
@@ -207,6 +183,39 @@ public class MainActivity extends AppCompatActivity {
             if (ShoppingService.getInstance() != null) {
                 ShoppingService.getInstance().closeFile();
             }
+        }
+    }
+
+    private final Handler handler = new Handler();
+    private boolean taskIsRun = false;
+
+    public void onTask(View view) {
+        if (taskIsRun) {
+            toast("wait for other task");
+            return;
+        }
+        Button button = (Button) view;
+        if (button.getText() != null && button.getText().length() > 0) {
+            String text = button.getText().toString();
+            if (ShoppingService.getInstance() != null) {
+                taskIsRun = true;
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (ShoppingService.getInstance() != null) {
+                            if (ShoppingService.getInstance().startTask(text)) {
+                                toast(String.format("%s: started", text));
+                            } else {
+                                toast(String.format("%s: failed", text));
+                            }
+                        }
+                        taskIsRun = false;
+                    }
+                }, 5000);
+            } else {
+                toast("Shopping server is not started!");
+            }
+
         }
     }
 }
