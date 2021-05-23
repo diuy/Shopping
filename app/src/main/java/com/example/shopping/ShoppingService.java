@@ -118,8 +118,8 @@ public class ShoppingService extends AccessibilityService {
         });
         schedule.addSchedule(TaskFactory.NAME_JDTask, dayTime(11, 54, 0));
         schedule.addSchedule(TaskFactory.NAME_YPTask, dayTime(9, 0, 0));
-        schedule.addSchedule(TaskFactory.NAME_YPTask, dayTime(9, 56, 0));
-        //schedule.addSchedule(TaskFactory.NAME_YPTask, getTodayTimeMillisecond()+30*1000);
+        schedule.addSchedule(TaskFactory.NAME_YPTask, dayTime(9, 57, 0));
+//        schedule.addSchedule(TaskFactory.NAME_YPTask, getTodayTimeMillisecond()+30*1000);
 
         schedule.start();
  //        startTask(TaskFactory.NAME_NotifyTask); //TODO test
