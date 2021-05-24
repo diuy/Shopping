@@ -119,9 +119,9 @@ public class ShoppingService extends AccessibilityService {
                 ShoppingService.this.onSchedule(name);
             }
         });
-        schedule.addSchedule(TaskFactory.NAME_JDTask, dayTime(11, 54, 0));
+        schedule.addSchedule(TaskFactory.NAME_JDTask, dayTime(11, 53, 0));
         schedule.addSchedule(TaskFactory.NAME_YPTask, dayTime(9, 0, 0));
-        schedule.addSchedule(TaskFactory.NAME_YPTask, dayTime(9, 57, 0));
+        schedule.addSchedule(TaskFactory.NAME_YPTask, dayTime(9, 53, 0));
 //        schedule.addSchedule(TaskFactory.NAME_YPTask, getTodayTimeMillisecond()+30*1000);
 
         schedule.start();

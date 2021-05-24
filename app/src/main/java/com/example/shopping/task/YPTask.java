@@ -13,7 +13,7 @@ public class YPTask extends Task {
             "actId=60a65349cff47e00014257b7&spmref=YouPin_A.share.share_pop_copy.4.66988930&share=1";
     private static final int listenType = AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED |
             AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED |
-            AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED|AccessibilityEvent.TYPE_VIEW_CLICKED;
+            AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED | AccessibilityEvent.TYPE_VIEW_CLICKED;
     private Runnable runnable;
 
     public YPTask(TaskHelper helper) {
@@ -93,7 +93,7 @@ public class YPTask extends Task {
             return;
         }
         node = helper.findOneNodeInWeb("恭喜您预约成功");
-        if (node != null ) {
+        if (node != null) {
             Log.i(TAG, "恭喜您预约成功");
             return;
         }
@@ -102,6 +102,12 @@ public class YPTask extends Task {
         if (node != null) {
             Log.i(TAG, "获得购买资格");
             notifyComplete(true);
+            return;
+        }
+        node = helper.findOneNodeInWeb("非常遗憾，已被抢光");
+        if (node != null) {
+            Log.i(TAG, "非常遗憾，已被抢光");
+            notifyComplete(false);
         }
 
     }

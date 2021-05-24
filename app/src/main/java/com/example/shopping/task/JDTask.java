@@ -28,9 +28,11 @@ public class JDTask extends Task {
     public void onEvent(AccessibilityEvent event) {
         if (isEnd)
             return;
-        int t = event.getEventType();
-        if ((t & listenType) > 0)
-            post();
+        if ("com.jingdong.app.mall".contentEquals(event.getPackageName())) {
+            int t = event.getEventType();
+            if ((t & listenType) > 0)
+                post();
+        }
     }
 
     private Runnable runnable;
@@ -100,10 +102,6 @@ public class JDTask extends Task {
             performSafe();
         } else if ("com.jd.lib.cashier.pay.view.CashierPayActivity".contentEquals(activity)) {
             performPay();
-        } else {
-            AccessibilityNodeInfo node = helper.findOneClickableNode("知道了");
-            if (node != null)
-                node.performAction(AccessibilityNodeInfo.ACTION_CLICK);
         }
     }
 
@@ -124,6 +122,13 @@ public class JDTask extends Task {
 
         node.performAction(AccessibilityNodeInfo.ACTION_CLICK);
         Log.i(TAG, "输入安全校验密码");
+
+        node=helper.findOneClickableNode("知道啦");
+        if(node==null)
+            return;
+
+        node.performAction(AccessibilityNodeInfo.ACTION_CLICK);
+        Log.i(TAG, "点击知道啦");
     }
 
     private void performProduct() {
