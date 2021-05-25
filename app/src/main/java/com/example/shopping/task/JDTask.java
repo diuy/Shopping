@@ -62,14 +62,16 @@ public class JDTask extends Task {
         }
         handler.post(runnable);
     }
+
     private String pay;
+
     public void start() {
         Log.i(TAG, "start");
-        if (!helper.startActivity(helper.getResourceString(R.string.jd_mt_url))) {
-            Log.e(TAG, "startActivity failed");
-            notifyComplete(false);
-            return;
-        }
+//        if (!helper.startActivity(helper.getResourceString(R.string.jd_mt_url))) {
+//            Log.e(TAG, "startActivity failed");
+//            notifyComplete(false);
+//            return;
+//        }
         pay = helper.readConfig("pay");
         post();
     }
@@ -99,7 +101,7 @@ public class JDTask extends Task {
         } else if ("com.jd.lib.settlement.fillorder.activity.NewFillOrderActivity".contentEquals(activity)) {
             performOrder(false);
         } else if ("com.jingdong.common.ui.JDDialog".contentEquals(activity)) {
-            performSafe();
+            performDialog();
         } else if ("com.jd.lib.cashier.pay.view.CashierPayActivity".contentEquals(activity)) {
             performPay();
         }
@@ -108,27 +110,28 @@ public class JDTask extends Task {
     private boolean clickedOrder = false;
     private boolean clickedBook = false;
 
-    private void performSafe() {
-        AccessibilityNodeInfo node = helper.findFocus();
-        if (node == null)
-            return;
-        Bundle arguments = new Bundle();
-        arguments.putCharSequence(AccessibilityNodeInfo.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE, pay);
-        node.performAction(AccessibilityNodeInfo.ACTION_SET_TEXT, arguments);
+    private void performDialog() {
 
+        AccessibilityNodeInfo node;
         node = helper.findOneClickableNode("确定");
-        if (node == null)
+        if (node != null) {
+            AccessibilityNodeInfo n = helper.findFocus();
+            if (n != null) {
+                Bundle arguments = new Bundle();
+                arguments.putCharSequence(AccessibilityNodeInfo.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE, pay);
+                n.performAction(AccessibilityNodeInfo.ACTION_SET_TEXT, arguments);
+                Log.i(TAG, "输入安全校验密码");
+            }
+            node.performAction(AccessibilityNodeInfo.ACTION_CLICK);
+            Log.i(TAG, "点击确定");
             return;
+        }
 
-        node.performAction(AccessibilityNodeInfo.ACTION_CLICK);
-        Log.i(TAG, "输入安全校验密码");
-
-        node=helper.findOneClickableNode("知道啦");
-        if(node==null)
-            return;
-
-        node.performAction(AccessibilityNodeInfo.ACTION_CLICK);
-        Log.i(TAG, "点击知道啦");
+        node = helper.findOneClickableNode("知道啦");
+        if (node != null) {
+            node.performAction(AccessibilityNodeInfo.ACTION_CLICK);
+            Log.i(TAG, "点击知道啦");
+        }
     }
 
     private void performProduct() {
