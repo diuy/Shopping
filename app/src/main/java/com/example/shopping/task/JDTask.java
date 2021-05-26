@@ -67,11 +67,11 @@ public class JDTask extends Task {
 
     public void start() {
         Log.i(TAG, "start");
-//        if (!helper.startActivity(helper.getResourceString(R.string.jd_mt_url))) {
-//            Log.e(TAG, "startActivity failed");
-//            notifyComplete(false);
-//            return;
-//        }
+        if (!helper.startActivity(helper.getResourceString(R.string.jd_mt_url))) {
+            Log.e(TAG, "startActivity failed");
+            notifyComplete(false);
+            return;
+        }
         pay = helper.readConfig("pay");
         post();
     }
