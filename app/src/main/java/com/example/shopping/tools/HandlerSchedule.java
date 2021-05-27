@@ -1,6 +1,7 @@
 package com.example.shopping.tools;
 
-import android.util.Log;
+//import android.util.Log;
+import com.example.shopping.tools.Log;
 
 import java.util.ArrayList;
 import java.util.Calendar;

@@ -11,7 +11,8 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.PowerManager;
-import android.util.Log;
+//import android.util.Log;
+import com.example.shopping.tools.Log;
 import android.view.accessibility.AccessibilityNodeInfo;
 
 import java.util.List;

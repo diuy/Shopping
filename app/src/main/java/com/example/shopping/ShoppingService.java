@@ -12,7 +12,8 @@ import android.graphics.Color;
 import android.graphics.Path;
 import android.os.Build;
 import android.os.Handler;
-import android.util.Log;
+//import android.util.Log;
+import com.example.shopping.tools.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.Toast;
 
@@ -203,6 +204,7 @@ public class ShoppingService extends AccessibilityService {
             writer.close();
             writer = null;
         }
+        com.example.shopping.tools.Log.close();
     }
 
     public void openFile() {
@@ -229,6 +231,8 @@ public class ShoppingService extends AccessibilityService {
         if (!writer.open()) {
             Log.e(TAG, "failed to open record file:" + logFile.getAbsolutePath());
         }
+
+        com.example.shopping.tools.Log.open(new File(dataDir, "record." + str + ".log"));
     }
 
     public void openRecord() {

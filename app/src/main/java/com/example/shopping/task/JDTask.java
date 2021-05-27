@@ -1,7 +1,8 @@
 package com.example.shopping.task;
 
 import android.os.Bundle;
-import android.util.Log;
+//import android.util.Log;
+import com.example.shopping.tools.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 
